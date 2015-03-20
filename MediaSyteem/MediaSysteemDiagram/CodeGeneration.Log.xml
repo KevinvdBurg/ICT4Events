@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="ProjectPath = ..\MediaSysteemDiagramLib\MediaSysteemDiagramLib.csproj" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2015-03-20T15:17:41" Importance="Medium" Text="MediaSysteemDiagram's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'MediaSysteemDiagram::Post' -  (Class), 'MediaSysteemDiagram::Map' -  (Class), 'MediaSysteemDiagram::Message' -  (Class), 'MediaSysteemDiagram::File' -  (Class), 'MediaSysteemDiagram::DBPost' -  (Class), 'MediaSysteemDiagram::Account' -  (Class), 'MediaSysteemDiagram::Person' -  (Class), 'MediaSysteemDiagram::Database1' -  (Class), 'MediaSysteemDiagram::Database2' -  (Class), 'MediaSysteemDiagram::Database3' -  (Class), 'MediaSysteemDiagram::Database' -  (Class), 'MediaSysteemDiagram::Category' -  (Class), 'MediaSysteemDiagram::Administation' -  (Class) " />
+  <Message Timestamp="2015-03-20T15:17:48" Importance="Medium" Text="Project Added: C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\MediaSysteemDiagramLib.csproj" />
+  <Message Timestamp="2015-03-20T15:17:48" Importance="Medium" Text="'MediaSysteemDiagram::Post' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Post.cs" />
+  <Message Timestamp="2015-03-20T15:17:49" Importance="Medium" Text="'MediaSysteemDiagram::Map' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Map.cs" />
+  <Message Timestamp="2015-03-20T15:17:50" Importance="Medium" Text="'MediaSysteemDiagram::Message' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Message.cs" />
+  <Message Timestamp="2015-03-20T15:17:51" Importance="Medium" Text="'MediaSysteemDiagram::File' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\File.cs" />
+  <Message Timestamp="2015-03-20T15:17:51" Importance="Medium" Text="'MediaSysteemDiagram::DBPost' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\DBPost.cs" />
+  <Message Timestamp="2015-03-20T15:17:52" Importance="Medium" Text="'MediaSysteemDiagram::Account' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Account.cs" />
+  <Message Timestamp="2015-03-20T15:17:52" Importance="Medium" Text="'MediaSysteemDiagram::Person' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Person.cs" />
+  <Message Timestamp="2015-03-20T15:17:53" Importance="Medium" Text="'MediaSysteemDiagram::Database1' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Database1.cs" />
+  <Message Timestamp="2015-03-20T15:17:53" Importance="Medium" Text="'MediaSysteemDiagram::Database2' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Database2.cs" />
+  <Message Timestamp="2015-03-20T15:17:54" Importance="Medium" Text="'MediaSysteemDiagram::Database3' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Database3.cs" />
+  <Message Timestamp="2015-03-20T15:17:54" Importance="Medium" Text="'MediaSysteemDiagram::Database' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Database.cs" />
+  <Message Timestamp="2015-03-20T15:17:55" Importance="Medium" Text="'MediaSysteemDiagram::Category' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Category.cs" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Medium" Text="'MediaSysteemDiagram::Administation' -  (Class) : success (file created) - C:\Users\Kevin van der Burg\Documents\GitHub\ICT4Events-MediaSysteem\MediaSyteem\MediaSysteemDiagramLib\GeneratedCode\Administation.cs" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="ProjectPath = ..\MediaSysteemDiagramLib\MediaSysteemDiagramLib.csproj" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Medium" Text="MediaSysteemDiagram's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'MediaSysteemDiagram::Post' -  (Class), 'MediaSysteemDiagram::Map' -  (Class), 'MediaSysteemDiagram::Message' -  (Class), 'MediaSysteemDiagram::File' -  (Class), 'MediaSysteemDiagram::DBPost' -  (Class), 'MediaSysteemDiagram::Account' -  (Class), 'MediaSysteemDiagram::Person' -  (Class), 'MediaSysteemDiagram::Database1' -  (Class), 'MediaSysteemDiagram::Database2' -  (Class), 'MediaSysteemDiagram::Database3' -  (Class), 'MediaSysteemDiagram::Database' -  (Class), 'MediaSysteemDiagram::Category' -  (Class), 'MediaSysteemDiagram::Administation' -  (Class) " />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="'MediaSysteemDiagram::Post' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="'MediaSysteemDiagram::Map' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="'MediaSysteemDiagram::Message' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:56" Importance="Diagnostic" Text="'MediaSysteemDiagram::File' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::DBPost' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Account' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Person' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Database1' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Database2' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Database3' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Database' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Category' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::Administation' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="The selection included 11 elements which were not bound to a template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'c2f66e8d-5613-4509-a1c5-9d7f822eb1c5' -  (Generalization): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'c898c1a3-8a2a-43e8-8b8b-52cb336a969b' -  (Generalization): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'88962c78-5df8-4cfb-a643-828515c4b9cc' -  (Generalization): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="Diagnostic" Text="'MediaSysteemDiagram::' -  (Association): no bound template." />
+  <Message Timestamp="2015-03-20T15:17:57" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
