@@ -12,13 +12,19 @@ namespace MediaSyteem
 {
     public partial class MediaForm : Form
     {
-        private Database db = new Database();
+        private DBLogin dblogin = new DBLogin();
 
         public MediaForm()
         {
             InitializeComponent();
-            db.Connect();
-            db.DisConnect();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if(dblogin.checkLogin(tbEmail.Text, tbPassword.Text))
+            {
+                MessageBox.Show("Ingelogd!");
+            }
         }
     }
 }

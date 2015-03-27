@@ -52,6 +52,7 @@
     <Compile Include="Administation.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="DBLogin.cs" />
     <Compile Include="DBPost.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Map.cs" />

@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Database
+public abstract class Database
 {
-    private OracleConnection connectie = new OracleConnection();
-    private string connectionString = "DATA SOURCE=fhictora01.fhict.local:1521/fhictora;PASSWORD=XAWdDJtZWV;USER ID=dbi314159";
+    protected OracleConnection connectie = new OracleConnection();
+    protected string connectionString = "DATA SOURCE=fhictora01.fhict.local:1521/fhictora;PASSWORD=XAWdDJtZWV;USER ID=dbi314159";
     
 
 	public Database()
