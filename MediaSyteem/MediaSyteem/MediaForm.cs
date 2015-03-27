@@ -12,9 +12,13 @@ namespace MediaSyteem
 {
     public partial class MediaForm : Form
     {
+        private Database db = new Database();
+
         public MediaForm()
         {
             InitializeComponent();
+            db.Connect();
+            db.DisConnect();
         }
     }
 }

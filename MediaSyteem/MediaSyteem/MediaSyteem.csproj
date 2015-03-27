@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Desktop\Oracle.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,12 +48,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="Administation.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DBPost.cs" />
+    <Compile Include="File.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="MediaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MediaForm.Designer.cs">
       <DependentUpon>MediaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Message.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MediaForm.resx">
@@ -76,12 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MediaSysteemDiagramLib\MediaSysteemDiagramLib.csproj">
-      <Project>{59d10bd9-1246-4ee3-bd4f-d6402b5e5cc5}</Project>
-      <Name>MediaSysteemDiagramLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
