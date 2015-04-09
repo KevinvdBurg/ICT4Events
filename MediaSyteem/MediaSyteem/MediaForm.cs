@@ -12,19 +12,21 @@ namespace MediaSyteem
 {
     public partial class MediaForm : Form
     {
-        private DBLogin dblogin = new DBLogin();
+        //private DBLogin dblogin = new DBLogin();
 
         public MediaForm()
         {
             InitializeComponent();
+            Button knopje = new Button();
+            knopje.Text = "nieuwe knop";
+            tableLayoutPanel1.Controls.Add(knopje, 1,1);
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnNewPost_Click(object sender, EventArgs e)
         {
-            if(dblogin.checkLogin(tbEmail.Text, tbPassword.Text))
-            {
-                MessageBox.Show("Ingelogd!");
-            }
+            tabCPosts.SelectedIndex = 1;
         }
+
+        
     }
 }
