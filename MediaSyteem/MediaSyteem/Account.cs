@@ -23,15 +23,10 @@ public class Account
 		set;
 	}
 
-	public Post Post
-	{
-		get;
-		set;
-	}
-
-
 	public Account(Person Person, string Type)
 	{
+        this.Person = Person;
+        this.Type = Type;
 	}
 
 }

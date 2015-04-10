@@ -31,6 +31,9 @@ public class Person
 
 	public Person(string Email, string LastName, string Name)
 	{
+        this.Email = Email;
+        this.LastName = LastName;
+        this.Name = Name;
 	}
 
 }

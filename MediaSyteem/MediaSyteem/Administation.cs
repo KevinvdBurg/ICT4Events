@@ -12,8 +12,6 @@ using System.Text;
 public class Administation
 {
 	
-	
-
 	public void Add(Post Post)
 	{
 		
@@ -28,6 +26,11 @@ public class Administation
 	{
 		
 	}
+
+    public Administation()
+    {
+
+    }
 
 }
 
