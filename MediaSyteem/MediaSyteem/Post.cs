@@ -61,6 +61,14 @@ public abstract class Post
 
 	public Post(Account Account, DateTime Date, int Likes, Map Map, Post Post, int Reports, string Title, string Type)
 	{
+        this.Account = Account;
+        this.Date = Date;
+        this.Likes = Likes;
+        this.Map = Map;
+        this.ParentPost = Post;
+        this.Reports = Reports;
+        this.Title = Title;
+        this.Type = Type;
 	}
 
 }

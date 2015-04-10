@@ -23,5 +23,10 @@ public class Map
 		set;
 	}
 
+    public Map(string Name, int ParentMap)
+    {
+        this.Name = Name;
+        this.ParentMap = ParentMap;
+    }
 }
 

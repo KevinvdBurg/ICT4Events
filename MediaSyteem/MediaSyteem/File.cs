@@ -31,6 +31,9 @@ public class File : Post
 
 	public File(Account Account, DateTime Date, int Likes, Map Map, Post Post, int Reports, string Title, string Type,Category Category, string FileLocation, Double Size):base(Account,Date,  Likes, Map,Post, Reports,  Title,  Type)
 	{
+        this.Category = Category;
+        this.FileLocation = FileLocation;
+        this.Size = Size;
 	}
 
 }

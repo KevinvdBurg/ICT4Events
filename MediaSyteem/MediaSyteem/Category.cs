@@ -16,10 +16,16 @@ public class Category
 		get;
 		set;
 	}
+    public string Type 
+    { 
+        get; 
+        set; 
+    }
 
 	public Category(string Type, string MediaKind)
 	{
-
+        this.type = type;
+        this.MediaKind = MediaKind;
 	}
 
 }
