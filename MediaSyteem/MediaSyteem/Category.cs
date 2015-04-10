@@ -24,7 +24,7 @@ public class Category
 
 	public Category(string Type, string MediaKind)
 	{
-        this.type = type;
+        this.Type = Type;
         this.MediaKind = MediaKind;
 	}
 
