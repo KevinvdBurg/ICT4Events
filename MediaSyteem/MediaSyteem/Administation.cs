@@ -26,11 +26,5 @@ public class Administation
 	{
 		
 	}
-
-    public Administation()
-    {
-
-    }
-
 }
 
