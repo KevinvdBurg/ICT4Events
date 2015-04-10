@@ -37,18 +37,18 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnNewPost = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabNewPost = new System.Windows.Forms.TabPage();
-            this.lblPlaatsPost = new System.Windows.Forms.Label();
-            this.lblPostNaam = new System.Windows.Forms.Label();
-            this.tbPostnaam = new System.Windows.Forms.TextBox();
-            this.lblPostTekst = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblBestand = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnConfirmPost = new System.Windows.Forms.Button();
             this.btnCancelPost = new System.Windows.Forms.Button();
+            this.btnConfirmPost = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblBestand = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblPostTekst = new System.Windows.Forms.Label();
+            this.tbPostnaam = new System.Windows.Forms.TextBox();
+            this.lblPostNaam = new System.Windows.Forms.Label();
+            this.lblPlaatsPost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -144,23 +144,6 @@
             this.tabPosts.Text = "InCheck";
             this.tabPosts.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 201F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 77);
-            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(800, 2000);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 307);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
             // btnNewPost
             // 
             this.btnNewPost.Location = new System.Drawing.Point(7, 36);
@@ -170,6 +153,23 @@
             this.btnNewPost.Text = "Nieuwe post";
             this.btnNewPost.UseVisualStyleBackColor = true;
             this.btnNewPost.Click += new System.EventHandler(this.btnNewPost_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 77);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(800, 2000);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 289F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 307);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tabNewPost
             // 
@@ -189,64 +189,14 @@
             this.tabNewPost.Text = "tabPage1";
             this.tabNewPost.UseVisualStyleBackColor = true;
             // 
-            // lblPlaatsPost
+            // btnCancelPost
             // 
-            this.lblPlaatsPost.AutoSize = true;
-            this.lblPlaatsPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaatsPost.Location = new System.Drawing.Point(27, 43);
-            this.lblPlaatsPost.Name = "lblPlaatsPost";
-            this.lblPlaatsPost.Size = new System.Drawing.Size(199, 39);
-            this.lblPlaatsPost.TabIndex = 0;
-            this.lblPlaatsPost.Text = "Plaats post!";
-            // 
-            // lblPostNaam
-            // 
-            this.lblPostNaam.AutoSize = true;
-            this.lblPostNaam.Location = new System.Drawing.Point(34, 127);
-            this.lblPostNaam.Name = "lblPostNaam";
-            this.lblPostNaam.Size = new System.Drawing.Size(63, 13);
-            this.lblPostNaam.TabIndex = 1;
-            this.lblPostNaam.Text = "Post naam :";
-            // 
-            // tbPostnaam
-            // 
-            this.tbPostnaam.Location = new System.Drawing.Point(221, 127);
-            this.tbPostnaam.Name = "tbPostnaam";
-            this.tbPostnaam.Size = new System.Drawing.Size(206, 20);
-            this.tbPostnaam.TabIndex = 2;
-            // 
-            // lblPostTekst
-            // 
-            this.lblPostTekst.AutoSize = true;
-            this.lblPostTekst.Location = new System.Drawing.Point(37, 164);
-            this.lblPostTekst.Name = "lblPostTekst";
-            this.lblPostTekst.Size = new System.Drawing.Size(40, 13);
-            this.lblPostTekst.TabIndex = 3;
-            this.lblPostTekst.Text = "Teskt :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(221, 164);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 127);
-            this.textBox1.TabIndex = 4;
-            // 
-            // lblBestand
-            // 
-            this.lblBestand.AutoSize = true;
-            this.lblBestand.Location = new System.Drawing.Point(40, 306);
-            this.lblBestand.Name = "lblBestand";
-            this.lblBestand.Size = new System.Drawing.Size(52, 13);
-            this.lblBestand.TabIndex = 5;
-            this.lblBestand.Text = "Bestand :";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(221, 306);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 6;
+            this.btnCancelPost.Location = new System.Drawing.Point(331, 345);
+            this.btnCancelPost.Name = "btnCancelPost";
+            this.btnCancelPost.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelPost.TabIndex = 8;
+            this.btnCancelPost.Text = "Annuleer";
+            this.btnCancelPost.UseVisualStyleBackColor = true;
             // 
             // btnConfirmPost
             // 
@@ -257,14 +207,64 @@
             this.btnConfirmPost.Text = "Plaats";
             this.btnConfirmPost.UseVisualStyleBackColor = true;
             // 
-            // btnCancelPost
+            // textBox2
             // 
-            this.btnCancelPost.Location = new System.Drawing.Point(331, 345);
-            this.btnCancelPost.Name = "btnCancelPost";
-            this.btnCancelPost.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelPost.TabIndex = 8;
-            this.btnCancelPost.Text = "Annuleer";
-            this.btnCancelPost.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(221, 306);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(206, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // lblBestand
+            // 
+            this.lblBestand.AutoSize = true;
+            this.lblBestand.Location = new System.Drawing.Point(40, 306);
+            this.lblBestand.Name = "lblBestand";
+            this.lblBestand.Size = new System.Drawing.Size(52, 13);
+            this.lblBestand.TabIndex = 5;
+            this.lblBestand.Text = "Bestand :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(221, 164);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 127);
+            this.textBox1.TabIndex = 4;
+            // 
+            // lblPostTekst
+            // 
+            this.lblPostTekst.AutoSize = true;
+            this.lblPostTekst.Location = new System.Drawing.Point(37, 164);
+            this.lblPostTekst.Name = "lblPostTekst";
+            this.lblPostTekst.Size = new System.Drawing.Size(40, 13);
+            this.lblPostTekst.TabIndex = 3;
+            this.lblPostTekst.Text = "Teskt :";
+            // 
+            // tbPostnaam
+            // 
+            this.tbPostnaam.Location = new System.Drawing.Point(221, 127);
+            this.tbPostnaam.Name = "tbPostnaam";
+            this.tbPostnaam.Size = new System.Drawing.Size(206, 20);
+            this.tbPostnaam.TabIndex = 2;
+            // 
+            // lblPostNaam
+            // 
+            this.lblPostNaam.AutoSize = true;
+            this.lblPostNaam.Location = new System.Drawing.Point(34, 127);
+            this.lblPostNaam.Name = "lblPostNaam";
+            this.lblPostNaam.Size = new System.Drawing.Size(63, 13);
+            this.lblPostNaam.TabIndex = 1;
+            this.lblPostNaam.Text = "Post naam :";
+            // 
+            // lblPlaatsPost
+            // 
+            this.lblPlaatsPost.AutoSize = true;
+            this.lblPlaatsPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaatsPost.Location = new System.Drawing.Point(27, 43);
+            this.lblPlaatsPost.Name = "lblPlaatsPost";
+            this.lblPlaatsPost.Size = new System.Drawing.Size(199, 39);
+            this.lblPlaatsPost.TabIndex = 0;
+            this.lblPlaatsPost.Text = "Plaats post!";
             // 
             // MediaForm
             // 
@@ -279,6 +279,8 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MediaForm";
             this.Text = "Media Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
