@@ -11,7 +11,7 @@ using System.Text;
 
 public class Message : Post
 {
-	public  string Content
+	public string Content
 	{
 		get;
 		set;

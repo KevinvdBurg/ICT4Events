@@ -41,19 +41,19 @@ public abstract class Post
 		set;
 	}
 
-	public virtual string Title
+	public string Title
 	{
 		get;
 		set;
 	}
 
-	public virtual int Reports
+	public int Reports
 	{
 		get;
 		set;
 	}
 
-	public virtual int Likes
+	public int Likes
 	{
 		get;
 		set;

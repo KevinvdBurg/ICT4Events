@@ -11,19 +11,19 @@ using System.Text;
 
 public class Person
 {
-	public virtual string Name
+	public string Name
 	{
 		get;
 		set;
 	}
 
-	public virtual string LastName
+	public string LastName
 	{
 		get;
 		set;
 	}
 
-	public virtual string Email
+	public string Email
 	{
 		get;
 		set;
