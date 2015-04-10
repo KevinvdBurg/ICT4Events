@@ -11,15 +11,17 @@ using System.Text;
 
 public class DBPost : Database
 {
-	public virtual void Delete()
+	public void Delete()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Insert()
+	public void Insert()
 	{
 		throw new System.NotImplementedException();
 	}
 
+
+    
 }
 

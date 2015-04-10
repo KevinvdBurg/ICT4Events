@@ -17,10 +17,13 @@ public class Message : Post
 		set;
 	}
 
+    //alles
 	public Message(Account Account, DateTime Date, int Likes, Map Map, Post Post, int Reports, string Title, string Type, string Content):base(Account,  Date,  Likes,  Map,  Post,  Reports,  Title,  Type)
 	{
         this.Content = Content;
 	}
+
+
 
 }
 

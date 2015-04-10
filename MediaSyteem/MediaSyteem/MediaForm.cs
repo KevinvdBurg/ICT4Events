@@ -17,6 +17,7 @@ namespace MediaSyteem
         public MediaForm()
         {
             InitializeComponent();
+            //TESTJES
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
@@ -32,10 +33,7 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             
             resizeGrid();
-            /*if(dgvPosts.RowCount == 4)
-            {
-                dgvPosts.Height = 110;
-            }*/
+            
             
             
         }
@@ -110,6 +108,27 @@ namespace MediaSyteem
         private void btnCancelPost_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
+        }
+
+        private void btnConfirmPost_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbPostnaam.Text))
+            {
+                MessageBox.Show("Vul de titel in");
+
+
+            }
+            else if (string.IsNullOrEmpty(tbPostText.Text))
+            {
+                MessageBox.Show("Vul de inhoud in");
+            }
+
+            
+            //testje
+            if (string.IsNullOrEmpty(tbFilePath.Text))
+            {
+                MessageBox.Show("Hooiiiii");
+            }
         }
         
     }

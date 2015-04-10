@@ -16,7 +16,7 @@ namespace MediaSyteem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MediaForm());
+            Application.Run(new mediaLogin());
         }
     }
 }

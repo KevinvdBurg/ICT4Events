@@ -31,6 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Oracle.DataAccess, Version=2.112.4.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -62,6 +66,12 @@
     <Compile Include="MediaForm.Designer.cs">
       <DependentUpon>MediaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="mediaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mediaLogin.Designer.cs">
+      <DependentUpon>mediaLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Message.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Post.cs" />
@@ -69,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MediaForm.resx">
       <DependentUpon>MediaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mediaLogin.resx">
+      <DependentUpon>mediaLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

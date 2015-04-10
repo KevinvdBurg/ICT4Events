@@ -59,6 +59,7 @@ public abstract class Post
 		set;
 	}
 
+    //Wel een parent post
 	public Post(Account Account, DateTime Date, int Likes, Map Map, Post Post, int Reports, string Title, string Type)
 	{
         this.Account = Account;
@@ -70,6 +71,19 @@ public abstract class Post
         this.Title = Title;
         this.Type = Type;
 	}
+
+    //Geen parent post
+    public Post(Account Account, DateTime Date, int Likes, Map Map,  int Reports, string Title, string Type)
+    {
+        this.Account = Account;
+        this.Date = Date;
+        this.Likes = Likes;
+        this.Map = Map;
+        
+        this.Reports = Reports;
+        this.Title = Title;
+        this.Type = Type;
+    }
 
 }
 

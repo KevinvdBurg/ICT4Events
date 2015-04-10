@@ -38,13 +38,17 @@
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
+            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postVerwijder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.postBekijk = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.postRapporteer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnNewPost = new System.Windows.Forms.Button();
             this.tabNewPost = new System.Windows.Forms.TabPage();
             this.btnCancelPost = new System.Windows.Forms.Button();
             this.btnConfirmPost = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbFilePath = new System.Windows.Forms.TextBox();
             this.lblBestand = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbPostText = new System.Windows.Forms.TextBox();
             this.lblPostTekst = new System.Windows.Forms.Label();
             this.tbPostnaam = new System.Windows.Forms.TextBox();
             this.lblPostNaam = new System.Windows.Forms.Label();
@@ -54,10 +58,6 @@
             this.lblSelectedPostReplies = new System.Windows.Forms.ListBox();
             this.tbSelectedPost = new System.Windows.Forms.TextBox();
             this.lblSelectedPostTitle = new System.Windows.Forms.Label();
-            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postVerwijder = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.postBekijk = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.postRapporteer = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -172,6 +172,31 @@
             this.dgvPosts.TabIndex = 2;
             this.dgvPosts.DoubleClick += new System.EventHandler(this.dgvPosts_DoubleClick);
             // 
+            // postTitel
+            // 
+            this.postTitel.HeaderText = "Post titel";
+            this.postTitel.Name = "postTitel";
+            this.postTitel.ReadOnly = true;
+            this.postTitel.Width = 200;
+            // 
+            // postVerwijder
+            // 
+            this.postVerwijder.HeaderText = "verwijder";
+            this.postVerwijder.Name = "postVerwijder";
+            this.postVerwijder.ReadOnly = true;
+            // 
+            // postBekijk
+            // 
+            this.postBekijk.HeaderText = "bekijk";
+            this.postBekijk.Name = "postBekijk";
+            this.postBekijk.ReadOnly = true;
+            // 
+            // postRapporteer
+            // 
+            this.postRapporteer.HeaderText = "rapporteer";
+            this.postRapporteer.Name = "postRapporteer";
+            this.postRapporteer.ReadOnly = true;
+            // 
             // btnNewPost
             // 
             this.btnNewPost.Location = new System.Drawing.Point(46, 20);
@@ -186,9 +211,9 @@
             // 
             this.tabNewPost.Controls.Add(this.btnCancelPost);
             this.tabNewPost.Controls.Add(this.btnConfirmPost);
-            this.tabNewPost.Controls.Add(this.textBox2);
+            this.tabNewPost.Controls.Add(this.tbFilePath);
             this.tabNewPost.Controls.Add(this.lblBestand);
-            this.tabNewPost.Controls.Add(this.textBox1);
+            this.tabNewPost.Controls.Add(this.tbPostText);
             this.tabNewPost.Controls.Add(this.lblPostTekst);
             this.tabNewPost.Controls.Add(this.tbPostnaam);
             this.tabNewPost.Controls.Add(this.lblPostNaam);
@@ -218,13 +243,14 @@
             this.btnConfirmPost.TabIndex = 7;
             this.btnConfirmPost.Text = "Plaats";
             this.btnConfirmPost.UseVisualStyleBackColor = true;
+            this.btnConfirmPost.Click += new System.EventHandler(this.btnConfirmPost_Click);
             // 
-            // textBox2
+            // tbFilePath
             // 
-            this.textBox2.Location = new System.Drawing.Point(221, 306);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 6;
+            this.tbFilePath.Location = new System.Drawing.Point(221, 306);
+            this.tbFilePath.Name = "tbFilePath";
+            this.tbFilePath.Size = new System.Drawing.Size(206, 20);
+            this.tbFilePath.TabIndex = 6;
             // 
             // lblBestand
             // 
@@ -235,13 +261,13 @@
             this.lblBestand.TabIndex = 5;
             this.lblBestand.Text = "Bestand :";
             // 
-            // textBox1
+            // tbPostText
             // 
-            this.textBox1.Location = new System.Drawing.Point(221, 95);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(528, 168);
-            this.textBox1.TabIndex = 4;
+            this.tbPostText.Location = new System.Drawing.Point(221, 95);
+            this.tbPostText.Multiline = true;
+            this.tbPostText.Name = "tbPostText";
+            this.tbPostText.Size = new System.Drawing.Size(528, 168);
+            this.tbPostText.TabIndex = 4;
             // 
             // lblPostTekst
             // 
@@ -329,31 +355,6 @@
             this.lblSelectedPostTitle.TabIndex = 0;
             this.lblSelectedPostTitle.Text = "lblSelectedPostTitle";
             // 
-            // postTitel
-            // 
-            this.postTitel.HeaderText = "Post titel";
-            this.postTitel.Name = "postTitel";
-            this.postTitel.ReadOnly = true;
-            this.postTitel.Width = 200;
-            // 
-            // postVerwijder
-            // 
-            this.postVerwijder.HeaderText = "verwijder";
-            this.postVerwijder.Name = "postVerwijder";
-            this.postVerwijder.ReadOnly = true;
-            // 
-            // postBekijk
-            // 
-            this.postBekijk.HeaderText = "bekijk";
-            this.postBekijk.Name = "postBekijk";
-            this.postBekijk.ReadOnly = true;
-            // 
-            // postRapporteer
-            // 
-            this.postRapporteer.HeaderText = "rapporteer";
-            this.postRapporteer.Name = "postRapporteer";
-            this.postRapporteer.ReadOnly = true;
-            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,9 +398,9 @@
         private System.Windows.Forms.TabPage tabPosts;
         private System.Windows.Forms.Button btnNewPost;
         private System.Windows.Forms.TabPage tabNewPost;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbFilePath;
         private System.Windows.Forms.Label lblBestand;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbPostText;
         private System.Windows.Forms.Label lblPostTekst;
         private System.Windows.Forms.TextBox tbPostnaam;
         private System.Windows.Forms.Label lblPostNaam;
