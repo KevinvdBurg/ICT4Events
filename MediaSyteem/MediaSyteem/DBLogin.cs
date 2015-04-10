@@ -9,7 +9,7 @@ namespace MediaSyteem
 {
     class DBLogin : Database
     {
-
+       
         public bool checkLogin(string email, string password)
         {
             bool resultaat = false;
@@ -19,7 +19,7 @@ namespace MediaSyteem
             try
             {
                 Connect();
-                OracleCommand cmd = new OracleCommand(sql, connectie);
+                OracleCommand cmd = new OracleCommand(sql, connection);
                 cmd.Parameters.Add(new OracleParameter("email", email));
                 cmd.Parameters.Add(new OracleParameter("password", password));
                 OracleDataReader reader = cmd.ExecuteReader();
@@ -34,7 +34,7 @@ namespace MediaSyteem
             }
             finally
             {
-                connectie.Close();
+                connection.Close();
             }
             return resultaat;
         }
