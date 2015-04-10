@@ -12,7 +12,7 @@ using System.Text;
 
 public abstract class Database
 {
-    protected OracleConnection connectie = new OracleConnection();
+    protected OracleConnection connection = new OracleConnection();
     protected string connectionString = "DATA SOURCE=fhictora01.fhict.local:1521/fhictora;PASSWORD=XAWdDJtZWV;USER ID=dbi314159";
     
 
@@ -25,19 +25,19 @@ public abstract class Database
 	{
         try
         {
-            connectie = new OracleConnection();
-            connectie.ConnectionString = connectionString;
-            connectie.Open();
+            connection = new OracleConnection();
+            connection.ConnectionString = connectionString;
+            connection.Open();
         }
         catch
         {
-            connectie.Close();
+            connection.Close();
         }
 	}
 
 	public void DisConnect()
 	{
-        connectie.Close();
+        connection.Close();
 	}
 
     
