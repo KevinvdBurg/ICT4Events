@@ -12,7 +12,7 @@ namespace MediaSyteem
 {
     public partial class MediaForm : Form
     {
-        //private DBLogin dblogin = new DBLogin();
+        private DBLogin dblogin = new DBLogin();
 
         public MediaForm()
         {

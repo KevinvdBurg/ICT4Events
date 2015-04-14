@@ -8,17 +8,78 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Oracle.DataAccess.Client;
 
 public class DBPost : Database
 {
-	public void Delete()
+	public bool Delete(string postid)
 	{
-		throw new System.NotImplementedException();
-	}
+		//throw new System.NotImplementedException();
+            bool resultaat = false;
+            string sql;
+            sql = "select * from post where postid = :postid";
 
-	public void Insert()
+            try
+            {
+                Connect();
+                
+                
+                OracleCommand cmd = new OracleCommand(sql, connection);
+                cmd.Parameters.Add(new OracleParameter("postid", postid));
+                OracleDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    resultaat = true;
+                }
+
+               
+                
+            }
+            catch (OracleException e)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return resultaat;
+        }
+	
+
+	public bool Insert(Post postinsert)
 	{
-		throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+        bool resultaat = false;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert :postinsert IN post";
+
+        try
+        {
+            Connect();
+
+
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("post", postinsert));
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                resultaat = true;
+            }
+
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
 	}
 
 
