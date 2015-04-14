@@ -38,11 +38,17 @@
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
+            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postBekijk = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.postRapporteer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.postVerwijder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewPost = new System.Windows.Forms.Button();
             this.tabNewPost = new System.Windows.Forms.TabPage();
             this.btnCancelPost = new System.Windows.Forms.Button();
             this.btnConfirmPost = new System.Windows.Forms.Button();
-            this.tbFilePath = new System.Windows.Forms.TextBox();
             this.lblBestand = new System.Windows.Forms.Label();
             this.tbPostText = new System.Windows.Forms.TextBox();
             this.lblPostTekst = new System.Windows.Forms.Label();
@@ -56,13 +62,9 @@
             this.lblSelectedPostTitle = new System.Windows.Forms.Label();
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
-            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postBekijk = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.postRapporteer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.postVerwijder = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.tbFilePath = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -180,6 +182,50 @@
             this.dgvPosts.TabIndex = 2;
             this.dgvPosts.DoubleClick += new System.EventHandler(this.dgvPosts_DoubleClick);
             // 
+            // postTitel
+            // 
+            this.postTitel.HeaderText = "Post titel";
+            this.postTitel.Name = "postTitel";
+            this.postTitel.ReadOnly = true;
+            this.postTitel.Width = 200;
+            // 
+            // likes
+            // 
+            this.likes.HeaderText = "Likes";
+            this.likes.Name = "likes";
+            this.likes.ReadOnly = true;
+            // 
+            // dislikes
+            // 
+            this.dislikes.HeaderText = "Dislikes";
+            this.dislikes.Name = "dislikes";
+            this.dislikes.ReadOnly = true;
+            // 
+            // postBekijk
+            // 
+            this.postBekijk.HeaderText = "bekijk";
+            this.postBekijk.Name = "postBekijk";
+            this.postBekijk.ReadOnly = true;
+            // 
+            // postRapporteer
+            // 
+            this.postRapporteer.HeaderText = "rapporteer";
+            this.postRapporteer.Name = "postRapporteer";
+            this.postRapporteer.ReadOnly = true;
+            // 
+            // postVerwijder
+            // 
+            this.postVerwijder.HeaderText = "verwijder";
+            this.postVerwijder.Name = "postVerwijder";
+            this.postVerwijder.ReadOnly = true;
+            // 
+            // PostID
+            // 
+            this.PostID.HeaderText = "PostID";
+            this.PostID.Name = "PostID";
+            this.PostID.ReadOnly = true;
+            this.PostID.Visible = false;
+            // 
             // btnNewPost
             // 
             this.btnNewPost.Location = new System.Drawing.Point(46, 20);
@@ -192,9 +238,10 @@
             // 
             // tabNewPost
             // 
+            this.tabNewPost.Controls.Add(this.tbFilePath);
+            this.tabNewPost.Controls.Add(this.btnBrowse);
             this.tabNewPost.Controls.Add(this.btnCancelPost);
             this.tabNewPost.Controls.Add(this.btnConfirmPost);
-            this.tabNewPost.Controls.Add(this.tbFilePath);
             this.tabNewPost.Controls.Add(this.lblBestand);
             this.tabNewPost.Controls.Add(this.tbPostText);
             this.tabNewPost.Controls.Add(this.lblPostTekst);
@@ -227,13 +274,6 @@
             this.btnConfirmPost.Text = "Plaats";
             this.btnConfirmPost.UseVisualStyleBackColor = true;
             this.btnConfirmPost.Click += new System.EventHandler(this.btnConfirmPost_Click);
-            // 
-            // tbFilePath
-            // 
-            this.tbFilePath.Location = new System.Drawing.Point(221, 306);
-            this.tbFilePath.Name = "tbFilePath";
-            this.tbFilePath.Size = new System.Drawing.Size(206, 20);
-            this.tbFilePath.TabIndex = 6;
             // 
             // lblBestand
             // 
@@ -356,49 +396,26 @@
             this.lblRFID2.TabIndex = 16;
             this.lblRFID2.Text = "label2";
             // 
-            // postTitel
+            // btnBrowse
             // 
-            this.postTitel.HeaderText = "Post titel";
-            this.postTitel.Name = "postTitel";
-            this.postTitel.ReadOnly = true;
-            this.postTitel.Width = 200;
+            this.btnBrowse.Location = new System.Drawing.Point(453, 304);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 9;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // likes
+            // tbFilePath
             // 
-            this.likes.HeaderText = "Likes";
-            this.likes.Name = "likes";
-            this.likes.ReadOnly = true;
+            this.tbFilePath.Location = new System.Drawing.Point(221, 304);
+            this.tbFilePath.Name = "tbFilePath";
+            this.tbFilePath.Size = new System.Drawing.Size(206, 20);
+            this.tbFilePath.TabIndex = 10;
             // 
-            // dislikes
+            // openFileDialog1
             // 
-            this.dislikes.HeaderText = "Dislikes";
-            this.dislikes.Name = "dislikes";
-            this.dislikes.ReadOnly = true;
-            // 
-            // postBekijk
-            // 
-            this.postBekijk.HeaderText = "bekijk";
-            this.postBekijk.Name = "postBekijk";
-            this.postBekijk.ReadOnly = true;
-            // 
-            // postRapporteer
-            // 
-            this.postRapporteer.HeaderText = "rapporteer";
-            this.postRapporteer.Name = "postRapporteer";
-            this.postRapporteer.ReadOnly = true;
-            // 
-            // postVerwijder
-            // 
-            this.postVerwijder.HeaderText = "verwijder";
-            this.postVerwijder.Name = "postVerwijder";
-            this.postVerwijder.ReadOnly = true;
-            // 
-            // PostID
-            // 
-            this.PostID.HeaderText = "PostID";
-            this.PostID.Name = "PostID";
-            this.PostID.ReadOnly = true;
-            this.PostID.Visible = false;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // MediaForm
             // 
@@ -446,7 +463,6 @@
         private System.Windows.Forms.TabPage tabPosts;
         private System.Windows.Forms.Button btnNewPost;
         private System.Windows.Forms.TabPage tabNewPost;
-        private System.Windows.Forms.TextBox tbFilePath;
         private System.Windows.Forms.Label lblBestand;
         private System.Windows.Forms.TextBox tbPostText;
         private System.Windows.Forms.Label lblPostTekst;
@@ -470,6 +486,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn postRapporteer;
         private System.Windows.Forms.DataGridViewButtonColumn postVerwijder;
         private System.Windows.Forms.DataGridViewTextBoxColumn PostID;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox tbFilePath;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
 
     }
 }

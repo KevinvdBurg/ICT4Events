@@ -138,6 +138,12 @@ namespace MediaSyteem
         {
             Application.Exit();
         }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            tbFilePath.Text = openFileDialog1.FileName;
+        }
         
     }
 }
