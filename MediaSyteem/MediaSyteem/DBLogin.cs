@@ -42,7 +42,57 @@ using System.Threading.Tasks;
             return resultaat;
         }
 
+        public Account returnLoggedinAccount(string email)
+        {
+            
+            Account account = new Account();
+            string lastName = "";
+            string name = "";
+            string type = "";
+            string rfid = "";
 
+            string sql;
+            sql = "select * from gebruiker where emailadres = :email";
+
+            try
+            {
+                Connect();
+
+                OracleCommand cmd = new OracleCommand(sql, connection);
+                cmd.Parameters.Add(new OracleParameter("email", email));
+                //cmd.Parameters.Add(new OracleParameter("password", password));
+                OracleDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    
+                    name = Convert.ToString(reader["voornaam"]);
+                    lastName = Convert.ToString(reader["achternaam"]);
+                    rfid = Convert.ToString(reader["rfid"]);
+                    if(Convert.ToInt32(reader["isAdmin"]) > 0)
+                    {
+                        type = "admin";
+                    }
+                    else
+                    {
+                        type = "bezoeker";
+                    }
+                }
+            
+                account = new Account(new Person(email, lastName, name), type, rfid);
+            
+            
+
+            }
+            catch (OracleException e)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return account;
+        }
         /*public void getAllPersons()
         {
             List<Person> resultaat = new List<Person>();

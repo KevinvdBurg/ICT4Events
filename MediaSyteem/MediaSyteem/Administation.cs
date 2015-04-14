@@ -12,6 +12,8 @@ using System.Text;
 
 public class Administation
 {
+    public Account currentAccount { get; set; }
+
     private DBLogin dblogin = new DBLogin();
 	
 	public void Add(Post Post)
@@ -33,6 +35,11 @@ public class Administation
     {
         return dblogin.loginCheck(username, password);
         
+    }
+    
+    public void setCurrentAccount(string email)
+    {
+        this.currentAccount = dblogin.returnLoggedinAccount(email);
     }
 }
 

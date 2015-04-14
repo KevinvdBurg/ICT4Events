@@ -36,5 +36,9 @@ public class Person
         this.Name = Name;
 	}
 
+    public Person()
+    {
+
+    }
 }
 

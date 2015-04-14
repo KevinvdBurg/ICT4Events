@@ -23,11 +23,23 @@ public class Account
 		set;
 	}
 
-	public Account(Person Person, string Type)
+    public string RFID
+    {
+        get;
+        set;
+    }
+
+	public Account(Person Person, string Type, string RFID)
 	{
         this.Person = Person;
         this.Type = Type;
+        this.RFID = RFID;
 	}
+
+    public Account()
+    {
+
+    }
 
 }
 

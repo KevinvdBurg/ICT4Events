@@ -23,7 +23,9 @@ namespace MediaSyteem
         {
             if(admin.login(tbEmail.Text, tbWachtwoord.Text))
             {
-                new MediaForm().Show();
+                admin.setCurrentAccount(tbEmail.Text);
+                new MediaForm(admin).Show();
+                
             }
             
         }

@@ -14,7 +14,7 @@ namespace MediaSyteem
     {
         private DBLogin dblogin = new DBLogin();
 
-        public MediaForm()
+        public MediaForm(Administation admin)
         {
             InitializeComponent();
             //TESTJES
@@ -31,10 +31,9 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
-            
             resizeGrid();
-            
-            
+            lblName2.Text = admin.currentAccount.Person.Name;
+            lblRFID2.Text = admin.currentAccount.RFID;
             
         }
 

@@ -58,6 +58,8 @@
             this.lblSelectedPostReplies = new System.Windows.Forms.ListBox();
             this.tbSelectedPost = new System.Windows.Forms.TextBox();
             this.lblSelectedPostTitle = new System.Windows.Forms.Label();
+            this.lblName2 = new System.Windows.Forms.Label();
+            this.lblRFID2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -355,11 +357,31 @@
             this.lblSelectedPostTitle.TabIndex = 0;
             this.lblSelectedPostTitle.Text = "lblSelectedPostTitle";
             // 
+            // lblName2
+            // 
+            this.lblName2.AutoSize = true;
+            this.lblName2.Location = new System.Drawing.Point(176, 33);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(35, 13);
+            this.lblName2.TabIndex = 15;
+            this.lblName2.Text = "label1";
+            // 
+            // lblRFID2
+            // 
+            this.lblRFID2.AutoSize = true;
+            this.lblRFID2.Location = new System.Drawing.Point(179, 63);
+            this.lblRFID2.Name = "lblRFID2";
+            this.lblRFID2.Size = new System.Drawing.Size(35, 13);
+            this.lblRFID2.TabIndex = 16;
+            this.lblRFID2.Text = "label2";
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 534);
+            this.Controls.Add(this.lblRFID2);
+            this.Controls.Add(this.lblName2);
             this.Controls.Add(this.tabCPosts);
             this.Controls.Add(this.lbliFunction);
             this.Controls.Add(this.lbliName);
@@ -417,6 +439,8 @@
         private System.Windows.Forms.DataGridViewButtonColumn postVerwijder;
         private System.Windows.Forms.DataGridViewButtonColumn postBekijk;
         private System.Windows.Forms.DataGridViewButtonColumn postRapporteer;
+        private System.Windows.Forms.Label lblName2;
+        private System.Windows.Forms.Label lblRFID2;
 
     }
 }
