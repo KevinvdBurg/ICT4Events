@@ -12,7 +12,7 @@ namespace MediaSyteem
 {
     public partial class mediaLogin : Form
     {
-        private DBLogin dblogin = new DBLogin();
+        private Administation admin = new Administation();
 
         public mediaLogin()
         {
@@ -21,7 +21,7 @@ namespace MediaSyteem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(dblogin.checkLogin(tbEmail.Text, tbWachtwoord.Text))
+            if(admin.login(tbEmail.Text, tbWachtwoord.Text))
             {
                 new MediaForm().Show();
             }

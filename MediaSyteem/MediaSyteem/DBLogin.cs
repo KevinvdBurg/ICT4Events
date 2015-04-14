@@ -5,31 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaSyteem
-{
     class DBLogin : Database
     {
-       
-        public bool checkLogin(string email, string password)
+
+        public bool loginCheck(string email, string password)
         {
             bool resultaat = false;
             string sql;
-            sql = "select count (*) as aantal from gebruiker where emailadres = :email and wachtwoord = :password";
+            sql = "select * from gebruiker where emailadres = :email and wachtwoord = :password";
+
             try
             {
                 Connect();
+                
+                
                 OracleCommand cmd = new OracleCommand(sql, connection);
-                //cmd.Parameters.Add(new OracleParameter("email", email));
-                //cmd.Parameters.Add(new OracleParameter("password", password));
+                cmd.Parameters.Add(new OracleParameter("email", email));
+                cmd.Parameters.Add(new OracleParameter("password", password));
                 OracleDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    if (Convert.ToInt32(reader["aantal"]) > 0)
-                    {
-                        resultaat = true;
-                    }
-
+                    resultaat = true;
                 }
+
+               
+                
             }
             catch (OracleException e)
             {
@@ -41,6 +41,7 @@ namespace MediaSyteem
             }
             return resultaat;
         }
+
 
         /*public void getAllPersons()
         {
@@ -70,4 +71,4 @@ namespace MediaSyteem
             
         }*/
     }
-}
+

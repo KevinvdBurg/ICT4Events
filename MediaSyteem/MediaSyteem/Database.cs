@@ -14,6 +14,7 @@ public abstract class Database
 {
     protected OracleConnection connection = new OracleConnection();
     protected string connectionString = "DATA SOURCE=fhictora01.fhict.local:1521/fhictora;PASSWORD=XAWdDJtZWV;USER ID=dbi314159";
+    protected string connectionString2 = "Data Source=localhost:1521/xe; PASSWORD=hallo;USER ID =bryan";
     
 
 	public Database()
@@ -39,6 +40,7 @@ public abstract class Database
 	{
         connection.Close();
 	}
+    
 
     
 

@@ -11,6 +11,8 @@ using System.Text;
 
 public class File : Post
 {
+
+ 
 	public Category Category
 	{
 		get;
