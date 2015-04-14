@@ -38,10 +38,6 @@
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
-            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postVerwijder = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.postBekijk = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.postRapporteer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnNewPost = new System.Windows.Forms.Button();
             this.tabNewPost = new System.Windows.Forms.TabPage();
             this.btnCancelPost = new System.Windows.Forms.Button();
@@ -60,6 +56,13 @@
             this.lblSelectedPostTitle = new System.Windows.Forms.Label();
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
+            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postBekijk = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.postRapporteer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.postVerwijder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -164,40 +167,18 @@
             this.dgvPosts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPosts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.postTitel,
-            this.postVerwijder,
+            this.likes,
+            this.dislikes,
             this.postBekijk,
-            this.postRapporteer});
+            this.postRapporteer,
+            this.postVerwijder,
+            this.PostID});
             this.dgvPosts.Location = new System.Drawing.Point(46, 62);
             this.dgvPosts.Name = "dgvPosts";
             this.dgvPosts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvPosts.Size = new System.Drawing.Size(549, 42);
+            this.dgvPosts.Size = new System.Drawing.Size(744, 42);
             this.dgvPosts.TabIndex = 2;
             this.dgvPosts.DoubleClick += new System.EventHandler(this.dgvPosts_DoubleClick);
-            // 
-            // postTitel
-            // 
-            this.postTitel.HeaderText = "Post titel";
-            this.postTitel.Name = "postTitel";
-            this.postTitel.ReadOnly = true;
-            this.postTitel.Width = 200;
-            // 
-            // postVerwijder
-            // 
-            this.postVerwijder.HeaderText = "verwijder";
-            this.postVerwijder.Name = "postVerwijder";
-            this.postVerwijder.ReadOnly = true;
-            // 
-            // postBekijk
-            // 
-            this.postBekijk.HeaderText = "bekijk";
-            this.postBekijk.Name = "postBekijk";
-            this.postBekijk.ReadOnly = true;
-            // 
-            // postRapporteer
-            // 
-            this.postRapporteer.HeaderText = "rapporteer";
-            this.postRapporteer.Name = "postRapporteer";
-            this.postRapporteer.ReadOnly = true;
             // 
             // btnNewPost
             // 
@@ -375,6 +356,50 @@
             this.lblRFID2.TabIndex = 16;
             this.lblRFID2.Text = "label2";
             // 
+            // postTitel
+            // 
+            this.postTitel.HeaderText = "Post titel";
+            this.postTitel.Name = "postTitel";
+            this.postTitel.ReadOnly = true;
+            this.postTitel.Width = 200;
+            // 
+            // likes
+            // 
+            this.likes.HeaderText = "Likes";
+            this.likes.Name = "likes";
+            this.likes.ReadOnly = true;
+            // 
+            // dislikes
+            // 
+            this.dislikes.HeaderText = "Dislikes";
+            this.dislikes.Name = "dislikes";
+            this.dislikes.ReadOnly = true;
+            // 
+            // postBekijk
+            // 
+            this.postBekijk.HeaderText = "bekijk";
+            this.postBekijk.Name = "postBekijk";
+            this.postBekijk.ReadOnly = true;
+            // 
+            // postRapporteer
+            // 
+            this.postRapporteer.HeaderText = "rapporteer";
+            this.postRapporteer.Name = "postRapporteer";
+            this.postRapporteer.ReadOnly = true;
+            // 
+            // postVerwijder
+            // 
+            this.postVerwijder.HeaderText = "verwijder";
+            this.postVerwijder.Name = "postVerwijder";
+            this.postVerwijder.ReadOnly = true;
+            // 
+            // PostID
+            // 
+            this.PostID.HeaderText = "PostID";
+            this.PostID.Name = "PostID";
+            this.PostID.ReadOnly = true;
+            this.PostID.Visible = false;
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +419,7 @@
             this.MaximizeBox = false;
             this.Name = "MediaForm";
             this.Text = "Media Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MediaForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabCPosts.ResumeLayout(false);
             this.tabPosts.ResumeLayout(false);
@@ -435,12 +461,15 @@
         private System.Windows.Forms.Button btnSelectedPostReturn;
         private System.Windows.Forms.ListBox lblSelectedPostReplies;
         private System.Windows.Forms.DataGridView dgvPosts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postTitel;
-        private System.Windows.Forms.DataGridViewButtonColumn postVerwijder;
-        private System.Windows.Forms.DataGridViewButtonColumn postBekijk;
-        private System.Windows.Forms.DataGridViewButtonColumn postRapporteer;
         private System.Windows.Forms.Label lblName2;
         private System.Windows.Forms.Label lblRFID2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postTitel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn likes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dislikes;
+        private System.Windows.Forms.DataGridViewButtonColumn postBekijk;
+        private System.Windows.Forms.DataGridViewButtonColumn postRapporteer;
+        private System.Windows.Forms.DataGridViewButtonColumn postVerwijder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostID;
 
     }
 }

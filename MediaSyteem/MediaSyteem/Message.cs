@@ -18,10 +18,15 @@ public class Message : Post
 	}
 
     //alles
-	public Message(Account Account, DateTime Date, int Likes, Map Map, Post Post, int Reports, string Title, string Type, string Content):base(Account,  Date,  Likes,  Map,  Post,  Reports,  Title,  Type)
+	public Message( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type, string Content):base(  Date,  Likes,  Map,  Post,  Reports,  Title,  Type)
 	{
         this.Content = Content;
 	}
+
+    public Message(DateTime Date, int Likes, int Map, int Reports, string Title, string Type, string Content):base(Date, Likes, Map, Reports, Title, Type)
+    {
+        this.Content = Content;
+    }
 
 
 

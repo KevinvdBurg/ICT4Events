@@ -12,12 +12,13 @@ namespace MediaSyteem
 {
     public partial class MediaForm : Form
     {
-        private DBLogin dblogin = new DBLogin();
+     
 
         public MediaForm(Administation admin)
         {
             InitializeComponent();
             //TESTJES
+            /*this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
@@ -29,8 +30,11 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
+            this.dgvPosts.Rows.Add("Titeltje");*/
+            foreach(Post p in admin.returnAllPosts())
+            {
+                dgvPosts.Rows.Add(p.Title, p.Likes, p.Reports);
+            }
             resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
@@ -128,6 +132,11 @@ namespace MediaSyteem
             {
                 MessageBox.Show("Hooiiiii");
             }
+        }
+
+        private void MediaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
         
     }

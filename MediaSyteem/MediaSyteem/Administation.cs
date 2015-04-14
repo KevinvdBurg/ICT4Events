@@ -15,6 +15,7 @@ public class Administation
     public Account currentAccount { get; set; }
 
     private DBLogin dblogin = new DBLogin();
+    private DBPost dbpost = new DBPost();
 	
 	public void Add(Post Post)
 	{
@@ -40,6 +41,13 @@ public class Administation
     public void setCurrentAccount(string email)
     {
         this.currentAccount = dblogin.returnLoggedinAccount(email);
+    }
+
+    public List<Post> returnAllPosts()
+    {
+        List<Post> resultaat = new List<Post>();
+        resultaat = dbpost.allPosts();
+        return resultaat;
     }
 }
 

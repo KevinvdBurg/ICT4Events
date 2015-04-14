@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public abstract class Post
+public  class Post
 {
 	public Account Account
 	{
@@ -17,13 +17,13 @@ public abstract class Post
 		set;
 	}
 
-	public Map  Map
+	public int  Map
 	{
 		get;
 		set;
 	}
 
-	public  Post ParentPost
+	public  int ParentPost
 	{
 		get;
 		set;
@@ -60,9 +60,9 @@ public abstract class Post
 	}
 
     //Wel een parent post
-	public Post(Account Account, DateTime Date, int Likes, Map Map, Post Post, int Reports, string Title, string Type)
+	public Post( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type)
 	{
-        this.Account = Account;
+        //this.Account = Account;
         this.Date = Date;
         this.Likes = Likes;
         this.Map = Map;
@@ -72,8 +72,21 @@ public abstract class Post
         this.Type = Type;
 	}
 
+    //Wel een parent post
+    public Post(DateTime Date, int Likes, int parentPost, int Reports, string Title, string Type)
+    {
+        //this.Account = Account;
+        this.Date = Date;
+        this.Likes = Likes;
+        //this.Map = Map;
+        this.ParentPost = parentPost;
+        this.Reports = Reports;
+        this.Title = Title;
+        this.Type = Type;
+    }
+
     //Geen parent post
-    public Post(Account Account, DateTime Date, int Likes, Map Map,  int Reports, string Title, string Type)
+   /* public Post( DateTime Date, int Likes, int Map,  int Reports, string Title, string Type)
     {
         this.Account = Account;
         this.Date = Date;
@@ -83,7 +96,21 @@ public abstract class Post
         this.Reports = Reports;
         this.Title = Title;
         this.Type = Type;
+    }*/
+
+    public Post( int Likes,  int Reports, string Title)
+    {
+        
+        
+        this.Likes = Likes;
+        
+
+        this.Reports = Reports;
+        this.Title = Title;
+        
     }
+
+   
 
 }
 

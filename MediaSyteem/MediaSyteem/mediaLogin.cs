@@ -25,6 +25,7 @@ namespace MediaSyteem
             {
                 admin.setCurrentAccount(tbEmail.Text);
                 new MediaForm(admin).Show();
+                this.Hide();
                 
             }
             

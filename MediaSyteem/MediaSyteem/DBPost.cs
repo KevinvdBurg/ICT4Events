@@ -82,6 +82,106 @@ public class DBPost : Database
         return resultaat;
 	}
 
+    public List<Post> allPosts()//zonder parent post
+    {
+        List<Post> resultaat = new List<Post>();
+        string sql;
+        sql = "select * from post";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if(!hasParentPost(Convert.ToInt32(reader["postid"])))
+                {
+                    /*if(Convert.ToString(reader["soort"]) == "bericht")
+                    {
+                        resultaat.Add(new Message(Convert.ToDateTime(reader["datum"]), Convert.ToInt32(reader["aantallikes"]),Convert.ToInt32(reader["mapid"]), Convert.ToInt32(reader["aantaldislikes"]), Convert.ToString(reader["titel"]), "bericht", Convert.ToString(reader[");
+                    }*/
+                    resultaat.Add(new Post(Convert.ToInt32(reader["aantallikes"]), Convert.ToInt32(reader["aantalreports"]), Convert.ToString(reader["titel"])));
+                }
+                
+
+            }
+        }
+        catch (OracleException e)
+        {
+            // The connection failed. Display an error message            
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public bool hasParentPost(int postid)
+    {
+        bool resultaat = true;
+        string sql;
+        sql = "select postid from post where parentpostid is null and postid = :postid";
+
+        try
+        {
+            Connect();
+
+
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            if(reader.HasRows)
+            {
+                resultaat = false;
+            }
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public int returnParentPost(int postid)
+    {
+        int resultaat = 0;
+        string sql;
+        sql = "select parentpostid from post where postid = :postid";
+
+        try
+        {
+            Connect();
+
+
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                resultaat = Convert.ToInt32("reader[parentpostid]");
+            }
+
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
 
     
 }
