@@ -93,8 +93,6 @@ public class DBPost : Database
                     }*/
                     resultaat.Add(new Post(Convert.ToInt32(reader["aantallikes"]), Convert.ToInt32(reader["aantalreports"]), Convert.ToString(reader["titel"])));
                 }
-
-
             }
         }
         catch (OracleException e)
@@ -117,8 +115,6 @@ public class DBPost : Database
         try
         {
             Connect();
-
-
             OracleCommand cmd = new OracleCommand(sql, connection);
             cmd.Parameters.Add(new OracleParameter("postid", postid));
             OracleDataReader reader = cmd.ExecuteReader();
@@ -149,8 +145,6 @@ public class DBPost : Database
         try
         {
             Connect();
-
-
             OracleCommand cmd = new OracleCommand(sql, connection);
             cmd.Parameters.Add(new OracleParameter("postid", postid));
             OracleDataReader reader = cmd.ExecuteReader();
@@ -158,9 +152,6 @@ public class DBPost : Database
             {
                 resultaat = Convert.ToInt32("reader[parentpostid]");
             }
-
-
-
         }
         catch (OracleException e)
         {
