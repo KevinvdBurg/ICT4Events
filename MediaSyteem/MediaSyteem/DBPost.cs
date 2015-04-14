@@ -22,8 +22,6 @@ public class DBPost : Database
             try
             {
                 Connect();
-                
-                
                 OracleCommand cmd = new OracleCommand(sql, connection);
                 cmd.Parameters.Add(new OracleParameter("postid", postid));
                 OracleDataReader reader = cmd.ExecuteReader();
@@ -31,9 +29,6 @@ public class DBPost : Database
                 {
                     resultaat = true;
                 }
-
-               
-                
             }
             catch (OracleException e)
             {
@@ -58,8 +53,6 @@ public class DBPost : Database
         try
         {
             Connect();
-
-
             OracleCommand cmd = new OracleCommand(sql, connection);
             cmd.Parameters.Add(new OracleParameter("post", postinsert));
             OracleDataReader reader = cmd.ExecuteReader();
@@ -67,9 +60,6 @@ public class DBPost : Database
             {
                 resultaat = true;
             }
-
-
-
         }
         catch (OracleException e)
         {
@@ -82,7 +72,62 @@ public class DBPost : Database
         return resultaat;
 	}
 
+    public bool AllPosts()
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = false;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "select * from post";
 
-    
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                resultaat = true;
+            }
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public bool FindPost(string postid)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = false;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "select * from post where postid = :postid";
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                resultaat = true;
+            }
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
 }
 
