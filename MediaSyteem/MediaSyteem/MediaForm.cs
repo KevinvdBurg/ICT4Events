@@ -34,10 +34,7 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");*/
             admini = admin;
-            foreach(Post p in admini.returnAllPosts())
-            {
-                dgvPosts.Rows.Add(p.Postid,p.Title, p.Likes, p.Reports);
-            }
+            
             resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
@@ -51,6 +48,12 @@ namespace MediaSyteem
 
         private void resizeGrid()
         {
+            dgvPosts.Rows.Clear();
+            foreach (Post p in admini.returnAllPosts())
+            {
+                dgvPosts.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
+            }
+
             int caseSwitch = dgvPosts.RowCount;
             switch (caseSwitch)
             {
@@ -112,11 +115,13 @@ namespace MediaSyteem
         private void btnSelectedPostReturn_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
+            resizeGrid();
         }
 
         private void btnCancelPost_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
+            resizeGrid();
         }
 
         private void btnConfirmPost_Click(object sender, EventArgs e)
@@ -147,6 +152,7 @@ namespace MediaSyteem
                 }
             }
             tabCPosts.SelectedIndex = 0;
+            resizeGrid();
         }
 
         private void MediaForm_FormClosing(object sender, FormClosingEventArgs e)

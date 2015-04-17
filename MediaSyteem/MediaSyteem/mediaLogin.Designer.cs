@@ -40,6 +40,7 @@
             // 
             this.tbWachtwoord.Location = new System.Drawing.Point(213, 260);
             this.tbWachtwoord.Name = "tbWachtwoord";
+            this.tbWachtwoord.PasswordChar = '*';
             this.tbWachtwoord.Size = new System.Drawing.Size(166, 20);
             this.tbWachtwoord.TabIndex = 11;
             this.tbWachtwoord.Text = "bryaniscool";
