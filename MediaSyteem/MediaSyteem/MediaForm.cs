@@ -179,7 +179,7 @@ namespace MediaSyteem
         private void btnOpenPost_Click(object sender, EventArgs e)
         {
             int gridCount = 0;
-            
+            dgvReplies.Rows.Clear();
 
             foreach (DataGridViewRow row in dgvPosts.SelectedRows)
             {
