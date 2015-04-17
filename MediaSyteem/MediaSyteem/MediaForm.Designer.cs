@@ -56,19 +56,21 @@
             this.lblPostNaam = new System.Windows.Forms.Label();
             this.lblPlaatsPost = new System.Windows.Forms.Label();
             this.tabSelectedPost = new System.Windows.Forms.TabPage();
-            this.btnSelectedPostReturn = new System.Windows.Forms.Button();
-            this.tbSelectedPost = new System.Windows.Forms.TextBox();
-            this.lblSelectedPostTitle = new System.Windows.Forms.Label();
-            this.lblName2 = new System.Windows.Forms.Label();
-            this.lblRFID2 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.lblPostAuteur = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvReplies = new System.Windows.Forms.DataGridView();
             this.postidreply = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postTitleReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postLikesReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PostDislikesReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelectedPostReturn = new System.Windows.Forms.Button();
+            this.tbSelectedPost = new System.Windows.Forms.TextBox();
+            this.lblSelectedPostTitle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPostAuteur = new System.Windows.Forms.Label();
+            this.lblName2 = new System.Windows.Forms.Label();
+            this.lblRFID2 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnLike = new System.Windows.Forms.Button();
+            this.btnDislike = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -343,6 +345,8 @@
             // 
             // tabSelectedPost
             // 
+            this.tabSelectedPost.Controls.Add(this.btnDislike);
+            this.tabSelectedPost.Controls.Add(this.btnLike);
             this.tabSelectedPost.Controls.Add(this.dgvReplies);
             this.tabSelectedPost.Controls.Add(this.btnSelectedPostReturn);
             this.tabSelectedPost.Controls.Add(this.tbSelectedPost);
@@ -355,76 +359,6 @@
             this.tabSelectedPost.TabIndex = 2;
             this.tabSelectedPost.Text = "tabPage1";
             this.tabSelectedPost.UseVisualStyleBackColor = true;
-            // 
-            // btnSelectedPostReturn
-            // 
-            this.btnSelectedPostReturn.Location = new System.Drawing.Point(7, 16);
-            this.btnSelectedPostReturn.Name = "btnSelectedPostReturn";
-            this.btnSelectedPostReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectedPostReturn.TabIndex = 3;
-            this.btnSelectedPostReturn.Text = "Terug";
-            this.btnSelectedPostReturn.UseVisualStyleBackColor = true;
-            this.btnSelectedPostReturn.Click += new System.EventHandler(this.btnSelectedPostReturn_Click);
-            // 
-            // tbSelectedPost
-            // 
-            this.tbSelectedPost.Location = new System.Drawing.Point(107, 42);
-            this.tbSelectedPost.Multiline = true;
-            this.tbSelectedPost.Name = "tbSelectedPost";
-            this.tbSelectedPost.ReadOnly = true;
-            this.tbSelectedPost.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbSelectedPost.Size = new System.Drawing.Size(748, 186);
-            this.tbSelectedPost.TabIndex = 1;
-            // 
-            // lblSelectedPostTitle
-            // 
-            this.lblSelectedPostTitle.AutoSize = true;
-            this.lblSelectedPostTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedPostTitle.Location = new System.Drawing.Point(100, 0);
-            this.lblSelectedPostTitle.Name = "lblSelectedPostTitle";
-            this.lblSelectedPostTitle.Size = new System.Drawing.Size(323, 39);
-            this.lblSelectedPostTitle.TabIndex = 0;
-            this.lblSelectedPostTitle.Text = "lblSelectedPostTitle";
-            // 
-            // lblName2
-            // 
-            this.lblName2.AutoSize = true;
-            this.lblName2.Location = new System.Drawing.Point(176, 33);
-            this.lblName2.Name = "lblName2";
-            this.lblName2.Size = new System.Drawing.Size(35, 13);
-            this.lblName2.TabIndex = 15;
-            this.lblName2.Text = "label1";
-            // 
-            // lblRFID2
-            // 
-            this.lblRFID2.AutoSize = true;
-            this.lblRFID2.Location = new System.Drawing.Point(179, 63);
-            this.lblRFID2.Name = "lblRFID2";
-            this.lblRFID2.Size = new System.Drawing.Size(35, 13);
-            this.lblRFID2.TabIndex = 16;
-            this.lblRFID2.Text = "label2";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // lblPostAuteur
-            // 
-            this.lblPostAuteur.AutoSize = true;
-            this.lblPostAuteur.Location = new System.Drawing.Point(504, 22);
-            this.lblPostAuteur.Name = "lblPostAuteur";
-            this.lblPostAuteur.Size = new System.Drawing.Size(35, 13);
-            this.lblPostAuteur.TabIndex = 6;
-            this.lblPostAuteur.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(429, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "door:";
             // 
             // dgvReplies
             // 
@@ -464,6 +398,95 @@
             this.PostDislikesReply.HeaderText = "Reports";
             this.PostDislikesReply.Name = "PostDislikesReply";
             this.PostDislikesReply.ReadOnly = true;
+            // 
+            // btnSelectedPostReturn
+            // 
+            this.btnSelectedPostReturn.Location = new System.Drawing.Point(7, 16);
+            this.btnSelectedPostReturn.Name = "btnSelectedPostReturn";
+            this.btnSelectedPostReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectedPostReturn.TabIndex = 3;
+            this.btnSelectedPostReturn.Text = "Terug";
+            this.btnSelectedPostReturn.UseVisualStyleBackColor = true;
+            this.btnSelectedPostReturn.Click += new System.EventHandler(this.btnSelectedPostReturn_Click);
+            // 
+            // tbSelectedPost
+            // 
+            this.tbSelectedPost.Location = new System.Drawing.Point(107, 42);
+            this.tbSelectedPost.Multiline = true;
+            this.tbSelectedPost.Name = "tbSelectedPost";
+            this.tbSelectedPost.ReadOnly = true;
+            this.tbSelectedPost.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbSelectedPost.Size = new System.Drawing.Size(645, 186);
+            this.tbSelectedPost.TabIndex = 1;
+            // 
+            // lblSelectedPostTitle
+            // 
+            this.lblSelectedPostTitle.AutoSize = true;
+            this.lblSelectedPostTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedPostTitle.Location = new System.Drawing.Point(100, 0);
+            this.lblSelectedPostTitle.Name = "lblSelectedPostTitle";
+            this.lblSelectedPostTitle.Size = new System.Drawing.Size(323, 39);
+            this.lblSelectedPostTitle.TabIndex = 0;
+            this.lblSelectedPostTitle.Text = "lblSelectedPostTitle";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(429, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "door:";
+            // 
+            // lblPostAuteur
+            // 
+            this.lblPostAuteur.AutoSize = true;
+            this.lblPostAuteur.Location = new System.Drawing.Point(504, 22);
+            this.lblPostAuteur.Name = "lblPostAuteur";
+            this.lblPostAuteur.Size = new System.Drawing.Size(35, 13);
+            this.lblPostAuteur.TabIndex = 6;
+            this.lblPostAuteur.Text = "label2";
+            // 
+            // lblName2
+            // 
+            this.lblName2.AutoSize = true;
+            this.lblName2.Location = new System.Drawing.Point(176, 33);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(35, 13);
+            this.lblName2.TabIndex = 15;
+            this.lblName2.Text = "label1";
+            // 
+            // lblRFID2
+            // 
+            this.lblRFID2.AutoSize = true;
+            this.lblRFID2.Location = new System.Drawing.Point(179, 63);
+            this.lblRFID2.Name = "lblRFID2";
+            this.lblRFID2.Size = new System.Drawing.Size(35, 13);
+            this.lblRFID2.TabIndex = 16;
+            this.lblRFID2.Text = "label2";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnLike
+            // 
+            this.btnLike.Location = new System.Drawing.Point(775, 176);
+            this.btnLike.Name = "btnLike";
+            this.btnLike.Size = new System.Drawing.Size(75, 23);
+            this.btnLike.TabIndex = 9;
+            this.btnLike.Text = "Like ";
+            this.btnLike.UseVisualStyleBackColor = true;
+            this.btnLike.Click += new System.EventHandler(this.btnLike_Click);
+            // 
+            // btnDislike
+            // 
+            this.btnDislike.Location = new System.Drawing.Point(775, 205);
+            this.btnDislike.Name = "btnDislike";
+            this.btnDislike.Size = new System.Drawing.Size(75, 23);
+            this.btnDislike.TabIndex = 10;
+            this.btnDislike.Text = "Dislike";
+            this.btnDislike.UseVisualStyleBackColor = true;
             // 
             // MediaForm
             // 
@@ -542,6 +565,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postTitleReply;
         private System.Windows.Forms.DataGridViewTextBoxColumn postLikesReply;
         private System.Windows.Forms.DataGridViewTextBoxColumn PostDislikesReply;
+        private System.Windows.Forms.Button btnDislike;
+        private System.Windows.Forms.Button btnLike;
 
     }
 }

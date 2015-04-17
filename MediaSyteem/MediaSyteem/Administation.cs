@@ -16,7 +16,11 @@ public class Administation
 
     private DBLogin dblogin = new DBLogin();
     private DBPost dbpost = new DBPost();
-	
+
+    public void LikePost(int postid)
+    {
+        dbpost.LikePost(postid);
+    }
 	public void Add(Post Post, string Inhoud)
 	{
 	    dbpost.InsertMessage(Post, Inhoud);

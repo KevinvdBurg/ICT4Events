@@ -13,6 +13,31 @@ using Oracle.DataAccess.Client;
 
 public class DBPost : Database
 {
+    public bool LikePost(int postid)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = true;
+        string sql;
+        sql = "update post set aantallikes = aantallikes + 1 where postid = :postid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
+        }
+        catch (OracleException e)
+        {
+            resultaat = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
 	public bool Delete(string postid)
 	{
 		//throw new System.NotImplementedException();
