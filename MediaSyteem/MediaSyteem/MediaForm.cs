@@ -146,6 +146,7 @@ namespace MediaSyteem
                     admini.Add(post, tbPostText.Text);
                 }
             }
+            tabCPosts.SelectedIndex = 0;
         }
 
         private void MediaForm_FormClosing(object sender, FormClosingEventArgs e)
