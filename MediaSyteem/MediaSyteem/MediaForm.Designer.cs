@@ -57,18 +57,25 @@
             this.lblPlaatsPost = new System.Windows.Forms.Label();
             this.tabSelectedPost = new System.Windows.Forms.TabPage();
             this.btnSelectedPostReturn = new System.Windows.Forms.Button();
-            this.lblSelectedPostReplies = new System.Windows.Forms.ListBox();
             this.tbSelectedPost = new System.Windows.Forms.TextBox();
             this.lblSelectedPostTitle = new System.Windows.Forms.Label();
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblPostAuteur = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvReplies = new System.Windows.Forms.DataGridView();
+            this.postidreply = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postTitleReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postLikesReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostDislikesReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosts)).BeginInit();
             this.tabNewPost.SuspendLayout();
             this.tabSelectedPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReplies)).BeginInit();
             this.SuspendLayout();
             // 
             // lbliFunction
@@ -336,10 +343,12 @@
             // 
             // tabSelectedPost
             // 
+            this.tabSelectedPost.Controls.Add(this.dgvReplies);
             this.tabSelectedPost.Controls.Add(this.btnSelectedPostReturn);
-            this.tabSelectedPost.Controls.Add(this.lblSelectedPostReplies);
             this.tabSelectedPost.Controls.Add(this.tbSelectedPost);
             this.tabSelectedPost.Controls.Add(this.lblSelectedPostTitle);
+            this.tabSelectedPost.Controls.Add(this.label1);
+            this.tabSelectedPost.Controls.Add(this.lblPostAuteur);
             this.tabSelectedPost.Location = new System.Drawing.Point(4, 5);
             this.tabSelectedPost.Name = "tabSelectedPost";
             this.tabSelectedPost.Size = new System.Drawing.Size(895, 390);
@@ -356,14 +365,6 @@
             this.btnSelectedPostReturn.Text = "Terug";
             this.btnSelectedPostReturn.UseVisualStyleBackColor = true;
             this.btnSelectedPostReturn.Click += new System.EventHandler(this.btnSelectedPostReturn_Click);
-            // 
-            // lblSelectedPostReplies
-            // 
-            this.lblSelectedPostReplies.FormattingEnabled = true;
-            this.lblSelectedPostReplies.Location = new System.Drawing.Point(107, 268);
-            this.lblSelectedPostReplies.Name = "lblSelectedPostReplies";
-            this.lblSelectedPostReplies.Size = new System.Drawing.Size(743, 95);
-            this.lblSelectedPostReplies.TabIndex = 2;
             // 
             // tbSelectedPost
             // 
@@ -407,6 +408,63 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // lblPostAuteur
+            // 
+            this.lblPostAuteur.AutoSize = true;
+            this.lblPostAuteur.Location = new System.Drawing.Point(504, 22);
+            this.lblPostAuteur.Name = "lblPostAuteur";
+            this.lblPostAuteur.Size = new System.Drawing.Size(35, 13);
+            this.lblPostAuteur.TabIndex = 6;
+            this.lblPostAuteur.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(429, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "door:";
+            // 
+            // dgvReplies
+            // 
+            this.dgvReplies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReplies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.postidreply,
+            this.postTitleReply,
+            this.postLikesReply,
+            this.PostDislikesReply});
+            this.dgvReplies.Location = new System.Drawing.Point(107, 259);
+            this.dgvReplies.Name = "dgvReplies";
+            this.dgvReplies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvReplies.Size = new System.Drawing.Size(340, 110);
+            this.dgvReplies.TabIndex = 8;
+            // 
+            // postidreply
+            // 
+            this.postidreply.HeaderText = "postid";
+            this.postidreply.Name = "postidreply";
+            this.postidreply.ReadOnly = true;
+            this.postidreply.Visible = false;
+            // 
+            // postTitleReply
+            // 
+            this.postTitleReply.HeaderText = "Titel";
+            this.postTitleReply.Name = "postTitleReply";
+            this.postTitleReply.ReadOnly = true;
+            // 
+            // postLikesReply
+            // 
+            this.postLikesReply.HeaderText = "Likes";
+            this.postLikesReply.Name = "postLikesReply";
+            this.postLikesReply.ReadOnly = true;
+            // 
+            // PostDislikesReply
+            // 
+            this.PostDislikesReply.HeaderText = "Reports";
+            this.PostDislikesReply.Name = "PostDislikesReply";
+            this.PostDislikesReply.ReadOnly = true;
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,6 +493,7 @@
             this.tabNewPost.PerformLayout();
             this.tabSelectedPost.ResumeLayout(false);
             this.tabSelectedPost.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReplies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,7 +524,6 @@
         private System.Windows.Forms.TextBox tbSelectedPost;
         private System.Windows.Forms.Label lblSelectedPostTitle;
         private System.Windows.Forms.Button btnSelectedPostReturn;
-        private System.Windows.Forms.ListBox lblSelectedPostReplies;
         private System.Windows.Forms.DataGridView dgvPosts;
         private System.Windows.Forms.Label lblName2;
         private System.Windows.Forms.Label lblRFID2;
@@ -477,6 +535,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postTitel;
         private System.Windows.Forms.DataGridViewTextBoxColumn likes;
         private System.Windows.Forms.DataGridViewTextBoxColumn dislikes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPostAuteur;
+        private System.Windows.Forms.DataGridView dgvReplies;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postidreply;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postTitleReply;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postLikesReply;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostDislikesReply;
 
     }
 }

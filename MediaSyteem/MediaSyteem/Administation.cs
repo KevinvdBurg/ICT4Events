@@ -54,5 +54,35 @@ public class Administation
         resultaat = dbpost.allPosts();
         return resultaat;
     }
+
+    public string postTitel(int postid)
+    {
+        return dbpost.GetTitel(postid);
+    }
+
+    public string PostAuteur(int postid)
+    {
+        return dbpost.GetPostAuteur(postid);
+    }
+
+    public int NumberOfReplies(int postid)
+    {
+        return dbpost.numberOfReplies(postid);
+    }
+    public string postText(int postid)
+    {
+        return dbpost.GetText(postid);
+    }
+
+    public bool isMessage(int postid)
+    {
+        return dbpost.isBericht(postid);
+    }
+    public List<Post> ReturnAllReplies(int postid)
+    {
+        List<Post> resultaat = new List<Post>();
+        resultaat = dbpost.allReplies(postid);
+        return resultaat;
+    }
 }
 

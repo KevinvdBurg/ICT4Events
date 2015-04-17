@@ -14,6 +14,7 @@ namespace MediaSyteem
     {
 
         private Administation admini;
+        private int currentPostReplies = 0;
 
         public MediaForm(Administation admin)
         {
@@ -166,7 +167,7 @@ namespace MediaSyteem
         private void btnOpenPost_Click(object sender, EventArgs e)
         {
             int gridCount = 0;
-            string value = "";
+            int value = 0;
 
             foreach (DataGridViewRow row in dgvPosts.SelectedRows)
             {
@@ -174,12 +175,28 @@ namespace MediaSyteem
                 {
                     if (gridCount == 0)
                     {
-                        value = cell.Value.ToString();
+                        value = Convert.ToInt32(cell.Value);
                     }
                     gridCount++;
                 }
             }
-            MessageBox.Show(value);
+            lblSelectedPostTitle.Text = admini.postTitel(value);
+            lblPostAuteur.Text = admini.PostAuteur(value);
+            currentPostReplies = admini.NumberOfReplies(value);
+
+            if (admini.isMessage(value))
+            {
+                tbSelectedPost.Text = admini.postText(value);
+            }
+            if (currentPostReplies > 0)
+            {
+                foreach (Post p in admini.ReturnAllReplies(value))
+                {
+                    dgvReplies.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
+                    
+                }
+            }
+            tabCPosts.SelectedIndex = 2;
             
         }
   

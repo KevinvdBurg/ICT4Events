@@ -296,8 +296,164 @@ public class DBPost : Database
         return resultaat;
     }
 
-   // public bool isBericht(int postid);
+    public string GetTitel(int postid)
+    {
+        string resultaat = "";
+        string sql;
+        sql = "select titel from post where postid = :postid";
 
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToString(reader["titel"]);
+            }
+            /*if (reader.HasRows)
+            {
+                
+            }*/
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public string GetPostAuteur(int postid)
+    {
+        string resultaat = "";
+        string sql;
+        sql = "select voornaam, achternaam from gebruiker, post where gebruiker.gebruikerid = post.gebruikerid and post.postid = :postid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToString(reader["voornaam"]) + " " + Convert.ToString(reader["achternaam"]);
+            }
+
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public int numberOfReplies(int postid)
+    {
+        int resultaat = 0;
+        string sql;
+        sql = "select count(postid) as aantal from post where parentpostid = :postid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToInt32(reader["aantal"]);
+            }
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public string GetText(int postid)
+    {
+        string resultaat = "";
+        string sql;
+        sql = "select inhoud from bericht where postid = :postid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToString(reader["inhoud"]);
+            }
+            /*if (reader.HasRows)
+            {
+                
+            }*/
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+   // public bool isBericht(int postid);
+    public List<Post> allReplies(int postid)//dus met parent post
+    {
+        List<Post> resultaat = new List<Post>();
+        string sql;
+        sql = "select * from post where parentpostid = :postid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat.Add(new Post(Convert.ToInt32(reader["postid"]), Convert.ToInt32(reader["aantallikes"]), Convert.ToInt32(reader["aantalreports"]), Convert.ToString(reader["titel"])));
+                
+            }
+        }
+        catch (OracleException e)
+        {
+            // The connection failed. Display an error message            
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
     
 }
 
