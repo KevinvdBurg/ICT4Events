@@ -12,8 +12,8 @@ namespace MediaSyteem
 {
     public partial class MediaForm : Form
     {
-     
 
+        private Administation admini;
         public MediaForm(Administation admin)
         {
             InitializeComponent();
@@ -31,9 +31,10 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");*/
-            foreach(Post p in admin.returnAllPosts())
+            admini = admin;
+            foreach(Post p in admini.returnAllPosts())
             {
-                dgvPosts.Rows.Add(p.Title, p.Likes, p.Reports);
+                dgvPosts.Rows.Add(p.Postid,p.Title, p.Likes, p.Reports);
             }
             resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
@@ -100,7 +101,10 @@ namespace MediaSyteem
 
         private void dgvPosts_DoubleClick(object sender, EventArgs e)
         {
-            tabCPosts.SelectedIndex = 2;
+            //tabCPosts.SelectedIndex = 2;
+            //lblSelectedPostTitle.Text = admini.
+            //tbSelectedPost.Text = admini.
+
         }
 
         private void btnSelectedPostReturn_Click(object sender, EventArgs e)
@@ -144,6 +148,32 @@ namespace MediaSyteem
             openFileDialog1.ShowDialog();
             tbFilePath.Text = openFileDialog1.FileName;
         }
+
+        private void dgvPosts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show(dgvPosts.SelectedRows[0].Cells["postid"].ToString());
+        }
+
+        private void btnOpenPost_Click(object sender, EventArgs e)
+        {
+            int gridCount = 0;
+            string value = "";
+
+            foreach (DataGridViewRow row in dgvPosts.SelectedRows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (gridCount == 0)
+                    {
+                        value = cell.Value.ToString();
+                    }
+                    gridCount++;
+                }
+            }
+            MessageBox.Show(value);
+            
+        }
+  
         
     }
 }

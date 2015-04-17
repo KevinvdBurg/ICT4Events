@@ -17,6 +17,13 @@ public  class Post
 		set;
 	}
 
+    public int Postid
+    {
+        get;
+        set;
+    }
+
+
 	public int  Map
 	{
 		get;
@@ -98,13 +105,12 @@ public  class Post
         this.Type = Type;
     }*/
 
-    public Post( int Likes,  int Reports, string Title)
+    public Post( int postid, int Likes,  int Reports, string Title)
     {
         
         
         this.Likes = Likes;
-        
-
+        this.Postid = postid;
         this.Reports = Reports;
         this.Title = Title;
         

@@ -91,7 +91,7 @@ public class DBPost : Database
                     {
                         resultaat.Add(new Message(Convert.ToDateTime(reader["datum"]), Convert.ToInt32(reader["aantallikes"]),Convert.ToInt32(reader["mapid"]), Convert.ToInt32(reader["aantaldislikes"]), Convert.ToString(reader["titel"]), "bericht", Convert.ToString(reader[");
                     }*/
-                    resultaat.Add(new Post(Convert.ToInt32(reader["aantallikes"]), Convert.ToInt32(reader["aantalreports"]), Convert.ToString(reader["titel"])));
+                    resultaat.Add(new Post(Convert.ToInt32(reader["postid"]), Convert.ToInt32(reader["aantallikes"]), Convert.ToInt32(reader["aantalreports"]), Convert.ToString(reader["titel"])));
                 }
             }
         }
@@ -163,5 +163,9 @@ public class DBPost : Database
         }
         return resultaat;
     }
+
+   // public bool isBericht(int postid);
+
+    
 }
 
