@@ -170,7 +170,7 @@ namespace MediaSyteem
         private void dgvPosts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dgvPosts.CurrentCell.RowIndex;
-            dgvPosts.Rows[index].Selected = true;
+           dgvPosts.Rows[index].Selected = true;
             
             btnOpenPost.PerformClick();
             //MessageBox.Show(dgvPosts.SelectedRows[0].Cells["postid"].ToString());
@@ -179,7 +179,7 @@ namespace MediaSyteem
         private void btnOpenPost_Click(object sender, EventArgs e)
         {
             int gridCount = 0;
-            int currentPost = 0;
+            
 
             foreach (DataGridViewRow row in dgvPosts.SelectedRows)
             {
@@ -215,6 +215,11 @@ namespace MediaSyteem
         private void btnLike_Click(object sender, EventArgs e)
         {
             admini.LikePost(currentPost);
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            admini.ReportPost(currentPost);
         }
   
         

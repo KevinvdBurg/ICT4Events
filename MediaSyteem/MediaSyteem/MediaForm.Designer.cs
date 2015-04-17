@@ -56,6 +56,8 @@
             this.lblPostNaam = new System.Windows.Forms.Label();
             this.lblPlaatsPost = new System.Windows.Forms.Label();
             this.tabSelectedPost = new System.Windows.Forms.TabPage();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.btnLike = new System.Windows.Forms.Button();
             this.dgvReplies = new System.Windows.Forms.DataGridView();
             this.postidreply = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postTitleReply = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,8 +71,6 @@
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnLike = new System.Windows.Forms.Button();
-            this.btnDislike = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -345,7 +345,7 @@
             // 
             // tabSelectedPost
             // 
-            this.tabSelectedPost.Controls.Add(this.btnDislike);
+            this.tabSelectedPost.Controls.Add(this.btnReport);
             this.tabSelectedPost.Controls.Add(this.btnLike);
             this.tabSelectedPost.Controls.Add(this.dgvReplies);
             this.tabSelectedPost.Controls.Add(this.btnSelectedPostReturn);
@@ -359,6 +359,26 @@
             this.tabSelectedPost.TabIndex = 2;
             this.tabSelectedPost.Text = "tabPage1";
             this.tabSelectedPost.UseVisualStyleBackColor = true;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(775, 205);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(75, 23);
+            this.btnReport.TabIndex = 10;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnLike
+            // 
+            this.btnLike.Location = new System.Drawing.Point(775, 176);
+            this.btnLike.Name = "btnLike";
+            this.btnLike.Size = new System.Drawing.Size(75, 23);
+            this.btnLike.TabIndex = 9;
+            this.btnLike.Text = "Like ";
+            this.btnLike.UseVisualStyleBackColor = true;
+            this.btnLike.Click += new System.EventHandler(this.btnLike_Click);
             // 
             // dgvReplies
             // 
@@ -469,25 +489,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnLike
-            // 
-            this.btnLike.Location = new System.Drawing.Point(775, 176);
-            this.btnLike.Name = "btnLike";
-            this.btnLike.Size = new System.Drawing.Size(75, 23);
-            this.btnLike.TabIndex = 9;
-            this.btnLike.Text = "Like ";
-            this.btnLike.UseVisualStyleBackColor = true;
-            this.btnLike.Click += new System.EventHandler(this.btnLike_Click);
-            // 
-            // btnDislike
-            // 
-            this.btnDislike.Location = new System.Drawing.Point(775, 205);
-            this.btnDislike.Name = "btnDislike";
-            this.btnDislike.Size = new System.Drawing.Size(75, 23);
-            this.btnDislike.TabIndex = 10;
-            this.btnDislike.Text = "Dislike";
-            this.btnDislike.UseVisualStyleBackColor = true;
-            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -565,7 +566,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postTitleReply;
         private System.Windows.Forms.DataGridViewTextBoxColumn postLikesReply;
         private System.Windows.Forms.DataGridViewTextBoxColumn PostDislikesReply;
-        private System.Windows.Forms.Button btnDislike;
+        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnLike;
 
     }

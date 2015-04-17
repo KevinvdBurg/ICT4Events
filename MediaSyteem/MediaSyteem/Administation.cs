@@ -88,5 +88,10 @@ public class Administation
         resultaat = dbpost.allReplies(postid);
         return resultaat;
     }
+
+    public void ReportPost(int postid)
+    {
+        dbpost.ReportPost(postid);
+    }
 }
 
