@@ -17,14 +17,19 @@ public class Administation
     private DBLogin dblogin = new DBLogin();
     private DBPost dbpost = new DBPost();
 	
-	public void Add(Post Post)
+	public void Add(Post Post, string Inhoud)
 	{
-		
+	    dbpost.InsertMessage(Post, Inhoud);
 	}
+
+    public void Add(Map map)
+    {
+        dbpost.Insert(map);
+    }
 
 	public void Delete(Post Post)
 	{
-		
+	    dbpost.Delete(Post.Postid.ToString());
 	}
 
 	public void Find(Post Post)

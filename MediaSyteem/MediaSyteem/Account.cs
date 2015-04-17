@@ -29,11 +29,14 @@ public class Account
         set;
     }
 
-	public Account(Person Person, string Type, string RFID)
+    public int GebruikerID { get; set; }
+
+	public Account(Person Person, string Type, string RFID, int GebruikerID)
 	{
         this.Person = Person;
         this.Type = Type;
         this.RFID = RFID;
+	    this.GebruikerID = GebruikerID;
 	}
 
     public Account()

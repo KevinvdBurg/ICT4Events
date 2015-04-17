@@ -14,6 +14,7 @@ namespace MediaSyteem
     {
 
         private Administation admini;
+
         public MediaForm(Administation admin)
         {
             InitializeComponent();
@@ -119,22 +120,30 @@ namespace MediaSyteem
 
         private void btnConfirmPost_Click(object sender, EventArgs e)
         {
+            bool Title = true;
+            bool Inhoud = true;
             if (string.IsNullOrEmpty(tbPostnaam.Text))
             {
                 MessageBox.Show("Vul de titel in");
-
+                Title = false;
 
             }
             else if (string.IsNullOrEmpty(tbPostText.Text))
             {
                 MessageBox.Show("Vul de inhoud in");
+                Inhoud = false;
             }
-
+            
             
             //testje
             if (string.IsNullOrEmpty(tbFilePath.Text))
             {
-                MessageBox.Show("Hooiiiii");
+                if (Title && Inhoud)
+                {
+                    Post post = new Post(DateTime.Now, 0, 1, 0, tbPostnaam.Text, "Bericht");
+                    post.Account = admini.currentAccount;
+                    admini.Add(post, tbPostText.Text);
+                }
             }
         }
 

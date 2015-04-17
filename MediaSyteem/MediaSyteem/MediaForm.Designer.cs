@@ -37,7 +37,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
+            this.btnOpenPost = new System.Windows.Forms.Button();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
+            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewPost = new System.Windows.Forms.Button();
             this.tabNewPost = new System.Windows.Forms.TabPage();
             this.tbFilePath = new System.Windows.Forms.TextBox();
@@ -58,11 +63,6 @@
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnOpenPost = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -162,6 +162,16 @@
             this.tabPosts.Text = "InCheck";
             this.tabPosts.UseVisualStyleBackColor = true;
             // 
+            // btnOpenPost
+            // 
+            this.btnOpenPost.Location = new System.Drawing.Point(138, 20);
+            this.btnOpenPost.Name = "btnOpenPost";
+            this.btnOpenPost.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenPost.TabIndex = 3;
+            this.btnOpenPost.Text = "Open post";
+            this.btnOpenPost.UseVisualStyleBackColor = true;
+            this.btnOpenPost.Click += new System.EventHandler(this.btnOpenPost_Click);
+            // 
             // dgvPosts
             // 
             this.dgvPosts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -178,6 +188,32 @@
             this.dgvPosts.TabIndex = 2;
             this.dgvPosts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPosts_CellContentClick);
             this.dgvPosts.DoubleClick += new System.EventHandler(this.dgvPosts_DoubleClick);
+            // 
+            // PostID
+            // 
+            this.PostID.HeaderText = "PostID";
+            this.PostID.Name = "PostID";
+            this.PostID.ReadOnly = true;
+            this.PostID.Visible = false;
+            // 
+            // postTitel
+            // 
+            this.postTitel.HeaderText = "Post titel";
+            this.postTitel.Name = "postTitel";
+            this.postTitel.ReadOnly = true;
+            this.postTitel.Width = 200;
+            // 
+            // likes
+            // 
+            this.likes.HeaderText = "Likes";
+            this.likes.Name = "likes";
+            this.likes.ReadOnly = true;
+            // 
+            // dislikes
+            // 
+            this.dislikes.HeaderText = "Dislikes";
+            this.dislikes.Name = "dislikes";
+            this.dislikes.ReadOnly = true;
             // 
             // btnNewPost
             // 
@@ -257,6 +293,7 @@
             // tbPostText
             // 
             this.tbPostText.Location = new System.Drawing.Point(221, 95);
+            this.tbPostText.MaxLength = 500;
             this.tbPostText.Multiline = true;
             this.tbPostText.Name = "tbPostText";
             this.tbPostText.Size = new System.Drawing.Size(528, 168);
@@ -369,42 +406,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // PostID
-            // 
-            this.PostID.HeaderText = "PostID";
-            this.PostID.Name = "PostID";
-            this.PostID.ReadOnly = true;
-            this.PostID.Visible = false;
-            // 
-            // postTitel
-            // 
-            this.postTitel.HeaderText = "Post titel";
-            this.postTitel.Name = "postTitel";
-            this.postTitel.ReadOnly = true;
-            this.postTitel.Width = 200;
-            // 
-            // likes
-            // 
-            this.likes.HeaderText = "Likes";
-            this.likes.Name = "likes";
-            this.likes.ReadOnly = true;
-            // 
-            // dislikes
-            // 
-            this.dislikes.HeaderText = "Dislikes";
-            this.dislikes.Name = "dislikes";
-            this.dislikes.ReadOnly = true;
-            // 
-            // btnOpenPost
-            // 
-            this.btnOpenPost.Location = new System.Drawing.Point(138, 20);
-            this.btnOpenPost.Name = "btnOpenPost";
-            this.btnOpenPost.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenPost.TabIndex = 3;
-            this.btnOpenPost.Text = "Open post";
-            this.btnOpenPost.UseVisualStyleBackColor = true;
-            this.btnOpenPost.Click += new System.EventHandler(this.btnOpenPost_Click);
             // 
             // MediaForm
             // 

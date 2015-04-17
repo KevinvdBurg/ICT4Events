@@ -66,7 +66,7 @@ public  class Post
 		set;
 	}
 
-    //Wel een parent post
+    //Geen parent post
 	public Post( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type)
 	{
         //this.Account = Account;
@@ -80,43 +80,36 @@ public  class Post
 	}
 
     //Wel een parent post
-    public Post(DateTime Date, int Likes, int parentPost, int Reports, string Title, string Type)
+    public Post(DateTime Date, int Likes, int Map, int Reports, string Title, string Type)
     {
         //this.Account = Account;
         this.Date = Date;
         this.Likes = Likes;
         //this.Map = Map;
-        this.ParentPost = parentPost;
+        this.Map = Map;
         this.Reports = Reports;
         this.Title = Title;
         this.Type = Type;
     }
 
-    //Geen parent post
-   /* public Post( DateTime Date, int Likes, int Map,  int Reports, string Title, string Type)
+    public Post(DateTime Date, string Title, string Type)
     {
-        this.Account = Account;
         this.Date = Date;
-        this.Likes = Likes;
-        this.Map = Map;
-        
-        this.Reports = Reports;
         this.Title = Title;
         this.Type = Type;
-    }*/
+    }
 
     public Post( int postid, int Likes,  int Reports, string Title)
     {
-        
-        
         this.Likes = Likes;
         this.Postid = postid;
         this.Reports = Reports;
         this.Title = Title;
-        
     }
 
-   
-
+    public Post(string Title)
+    {
+        this.Title = Title;
+    }
 }
 

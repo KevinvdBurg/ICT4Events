@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 
 public class Message : Post
@@ -24,6 +25,11 @@ public class Message : Post
 	}
 
     public Message(DateTime Date, int Likes, int Map, int Reports, string Title, string Type, string Content):base(Date, Likes, Map, Reports, Title, Type)
+    {
+        this.Content = Content;
+    }
+
+    public Message(string Title, string Content):base(Title)
     {
         this.Content = Content;
     }

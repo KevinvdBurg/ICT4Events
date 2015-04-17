@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Oracle.DataAccess.Client;
 
 public class DBPost : Database
@@ -17,7 +18,7 @@ public class DBPost : Database
 		//throw new System.NotImplementedException();
             bool resultaat = false;
             string sql;
-            sql = "select * from post where postid = :postid";
+            sql = "DELETE * from post where postid = :postid";
 
             try
             {
@@ -40,21 +41,152 @@ public class DBPost : Database
             }
             return resultaat;
         }
-	
 
-	public bool Insert(Post postinsert)
-	{
-        //throw new System.NotImplementedException();
+    public bool isBericht(int postid)
+    {
         bool resultaat = false;
         string sql;
-        //CHECKEN OF DIE GOED IS?
-        sql = "insert :postinsert IN post";
+        sql = "select * from post where  soort = 'Bericht' and postid = :postid";
 
         try
         {
             Connect();
             OracleCommand cmd = new OracleCommand(sql, connection);
-            cmd.Parameters.Add(new OracleParameter("post", postinsert));
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                resultaat = true;
+            }
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public int FindPostId(Post findPost)
+    {
+        //throw new System.NotImplementedException();
+        int resultaat = 0;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "SELECT postid FROM post WHERE GebruikerID = :accountje AND mapid = :map AND Soort = :type AND titel = :title";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("accountje", findPost.Account.GebruikerID));
+            cmd.Parameters.Add(new OracleParameter("map", findPost.Map));
+            cmd.Parameters.Add(new OracleParameter("type", findPost.Type));
+            cmd.Parameters.Add(new OracleParameter("title", findPost.Title));
+            /*cmd.Parameters.Add(new OracleParameter("reports", findPost.Reports));
+            cmd.Parameters.Add(new OracleParameter("likes", findPost.Likes));
+            cmd.Parameters.Add(new OracleParameter("datum", findPost.Date.ToString("dd/MMMM/yy")));*/
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToInt32(reader["postid"]);
+            }
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+	public bool InsertMessage(Post postinsert, string inhoud)
+	{
+        //throw new System.NotImplementedException();
+        bool resultaat = true;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert into post(GEBRUIKERID, MAPID, SOORT, TITEL, AANTALREPORTS, AANTALLIKES, DATUM) values (:accountje, :map, :type, :title, :reports, :likes, :datum)";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("accountje", postinsert.Account.GebruikerID));
+            cmd.Parameters.Add(new OracleParameter("map", postinsert.Map));
+            cmd.Parameters.Add(new OracleParameter("type", postinsert.Type));
+            cmd.Parameters.Add(new OracleParameter("title", postinsert.Title));
+            cmd.Parameters.Add(new OracleParameter("reports", postinsert.Reports));
+            cmd.Parameters.Add(new OracleParameter("likes", postinsert.Likes));
+            cmd.Parameters.Add(new OracleParameter("datum", postinsert.Date.ToString("dd/MMMM/yy")));
+            cmd.ExecuteNonQuery();
+            int postid = FindPostId((postinsert));
+            if (isBericht(postid))
+            {
+                InsertMessage(postid, inhoud);
+            }
+        }
+        catch (OracleException e)
+        {
+            resultaat = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+	}
+
+    public bool InsertMessage(int postid, string inhoud)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = true;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert into bericht(postid, inhoud) values (:postid, :inhoud)";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            cmd.Parameters.Add(new OracleParameter("inhoud", inhoud));
+            cmd.ExecuteNonQuery();
+        }
+        catch (OracleException e)
+        {
+            resultaat = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+
+    }
+    public bool Insert(Map map)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = false;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert into map (PARENTMAPID, NAAM)" +
+              "values (:parentmapid, :naam)";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("parentmapid", map.ParentMap));
+            cmd.Parameters.Add(new OracleParameter("naam", map.Name));
             OracleDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
@@ -70,7 +202,7 @@ public class DBPost : Database
             connection.Close();
         }
         return resultaat;
-	}
+    }
 
     public List<Post> allPosts()//zonder parent post
     {

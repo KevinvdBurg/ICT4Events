@@ -50,6 +50,7 @@ using System.Threading.Tasks;
             string name = "";
             string type = "";
             string rfid = "";
+            int gebruikerid = 0;
 
             string sql;
             sql = "select * from gebruiker where emailadres = :email";
@@ -68,6 +69,7 @@ using System.Threading.Tasks;
                     name = Convert.ToString(reader["voornaam"]);
                     lastName = Convert.ToString(reader["achternaam"]);
                     rfid = Convert.ToString(reader["rfid"]);
+                    gebruikerid = Convert.ToInt32(reader["gebruikerid"]);
                     if(Convert.ToInt32(reader["isAdmin"]) > 0)
                     {
                         type = "admin";
@@ -78,7 +80,7 @@ using System.Threading.Tasks;
                     }
                 }
             
-                account = new Account(new Person(email, lastName, name), type, rfid);
+                account = new Account(new Person(email, lastName, name), type, rfid, gebruikerid);
             
             
 
