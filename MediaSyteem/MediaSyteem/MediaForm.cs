@@ -168,6 +168,10 @@ namespace MediaSyteem
 
         private void dgvPosts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int index = dgvPosts.CurrentCell.RowIndex;
+            dgvPosts.Rows[index].Selected = true;
+            
+            btnOpenPost.PerformClick();
             //MessageBox.Show(dgvPosts.SelectedRows[0].Cells["postid"].ToString());
         }
 
