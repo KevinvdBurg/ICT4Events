@@ -71,6 +71,7 @@
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnReply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -345,6 +346,7 @@
             // 
             // tabSelectedPost
             // 
+            this.tabSelectedPost.Controls.Add(this.btnReply);
             this.tabSelectedPost.Controls.Add(this.btnReport);
             this.tabSelectedPost.Controls.Add(this.btnLike);
             this.tabSelectedPost.Controls.Add(this.dgvReplies);
@@ -393,6 +395,7 @@
             this.dgvReplies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvReplies.Size = new System.Drawing.Size(340, 110);
             this.dgvReplies.TabIndex = 8;
+            this.dgvReplies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReplies_CellContentClick);
             // 
             // postidreply
             // 
@@ -489,6 +492,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnReply
+            // 
+            this.btnReply.Location = new System.Drawing.Point(775, 147);
+            this.btnReply.Name = "btnReply";
+            this.btnReply.Size = new System.Drawing.Size(75, 23);
+            this.btnReply.TabIndex = 11;
+            this.btnReply.Text = "Reageer";
+            this.btnReply.UseVisualStyleBackColor = true;
+            this.btnReply.Click += new System.EventHandler(this.btnReply_Click);
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,6 +581,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PostDislikesReply;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnLike;
+        private System.Windows.Forms.Button btnReply;
 
     }
 }

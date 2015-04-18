@@ -16,6 +16,7 @@ namespace MediaSyteem
         private Administation admini;
         private int currentPostReplies = 0;
         private int currentPost = 0;
+        private int currentParentPost = 0;
 
         public MediaForm(Administation admin)
         {
@@ -147,11 +148,25 @@ namespace MediaSyteem
             {
                 if (Title && Inhoud)
                 {
-                    Post post = new Post(DateTime.Now, 0, 1, 0, tbPostnaam.Text, "Bericht");
-                    post.Account = admini.currentAccount;
-                    admini.Add(post, tbPostText.Text);
+                    if(currentPost == 0)
+                    {
+                        Post post = new Post(DateTime.Now, 0, 1, 0, tbPostnaam.Text, "Bericht");
+                        post.Account = admini.currentAccount;
+                        admini.Add(post, tbPostText.Text);
+                    }
+                    else
+                    {
+                        Post post = new Post(DateTime.Now, 0, 1, currentPost, 0, tbPostnaam.Text, "Bericht");
+                        post.Account = admini.currentAccount;
+                        admini.AddReply(post, tbPostText.Text);
+                    }
+                    
+                    tbPostnaam.Clear();
+                    tbPostText.Clear();
                 }
             }
+            currentPost = 0;
+            currentParentPost = 0;
             tabCPosts.SelectedIndex = 0;
             resizeGrid();
         }
@@ -188,6 +203,7 @@ namespace MediaSyteem
                     if (gridCount == 0)
                     {
                         currentPost = Convert.ToInt32(cell.Value);
+                        currentParentPost = 0;
                     }
                     gridCount++;
                 }
@@ -220,6 +236,54 @@ namespace MediaSyteem
         private void btnReport_Click(object sender, EventArgs e)
         {
             admini.ReportPost(currentPost);
+        }
+
+        private void dgvReplies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvReplies.CurrentCell.RowIndex;
+            dgvReplies.Rows[index].Selected = true;
+
+            int gridCount = 0;
+
+            
+            
+
+            foreach (DataGridViewRow row in dgvReplies.SelectedRows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (gridCount == 0)
+                    {
+                        currentPost = Convert.ToInt32(cell.Value);
+                        currentParentPost = admini.GiveParentPost(currentPost);
+                    }
+                    gridCount++;
+                }
+            }
+            lblSelectedPostTitle.Text = admini.postTitel(currentPost);
+            lblPostAuteur.Text = admini.PostAuteur(currentPost);
+            currentPostReplies = admini.NumberOfReplies(currentPost);
+            dgvReplies.Rows.Clear();
+
+            if (admini.isMessage(currentPost))
+            {
+                tbSelectedPost.Text = admini.postText(currentPost);
+            }
+            if (currentPostReplies > 0)
+            {
+                foreach (Post p in admini.ReturnAllReplies(currentPost))
+                {
+                    dgvReplies.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
+
+                }
+            }
+        }
+
+        private void btnReply_Click(object sender, EventArgs e)
+        {
+            tabCPosts.SelectedIndex = 1;
+
+
         }
   
         

@@ -93,5 +93,22 @@ public class Administation
     {
         dbpost.ReportPost(postid);
     }
+
+    public bool hasParentPost(int postid)
+    {
+        return dbpost.hasParentPost(postid);
+    }
+
+    public int GiveParentPost(int postid)
+    {
+        return dbpost.returnParentPost(postid);
+    }
+
+    public void AddReply(Post Post, string Inhoud)
+    {
+        dbpost.InsertReply(Post, Inhoud);
+    }
+
+
 }
 

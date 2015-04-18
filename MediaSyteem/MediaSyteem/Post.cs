@@ -66,7 +66,7 @@ public  class Post
 		set;
 	}
 
-    //Geen parent post
+    //wel parent post
 	public Post( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type)
 	{
         //this.Account = Account;
@@ -79,7 +79,7 @@ public  class Post
         this.Type = Type;
 	}
 
-    //Wel een parent post
+    //geen een parent post
     public Post(DateTime Date, int Likes, int Map, int Reports, string Title, string Type)
     {
         //this.Account = Account;

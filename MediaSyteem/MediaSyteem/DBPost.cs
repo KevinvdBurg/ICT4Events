@@ -487,14 +487,52 @@ public class DBPost : Database
             OracleCommand cmd = new OracleCommand(sql, connection);
             cmd.Parameters.Add(new OracleParameter("postid", postid));
             OracleDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            while(reader.Read())
             {
-                resultaat = Convert.ToInt32("reader[parentpostid]");
+                resultaat = Convert.ToInt32(reader["parentpostid"]);
             }
         }
         catch (OracleException e)
         {
 
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public bool InsertReply(Post postinsert, string inhoud)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = true;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert into post(GEBRUIKERID, MAPID, PARENTPOSTID, SOORT, TITEL, AANTALREPORTS, AANTALLIKES, DATUM) values (:accountje, :map, :parentpost, :type, :title, :reports, :likes, :datum)";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("accountje", postinsert.Account.GebruikerID));
+            cmd.Parameters.Add(new OracleParameter("map", postinsert.Map));
+            cmd.Parameters.Add(new OracleParameter("parentpost", postinsert.ParentPost));
+            cmd.Parameters.Add(new OracleParameter("type", postinsert.Type));
+            cmd.Parameters.Add(new OracleParameter("title", postinsert.Title));
+            cmd.Parameters.Add(new OracleParameter("reports", postinsert.Reports));
+            cmd.Parameters.Add(new OracleParameter("likes", postinsert.Likes));
+            cmd.Parameters.Add(new OracleParameter("datum", postinsert.Date.ToString("dd/MMMM/yy")));
+            cmd.ExecuteNonQuery();
+            int postid = FindPostId((postinsert));
+            if (isBericht(postid))
+            {
+                InsertMessage(postid, inhoud);
+            }
+        }
+        catch (OracleException e)
+        {
+            resultaat = false;
         }
         finally
         {
