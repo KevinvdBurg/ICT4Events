@@ -56,6 +56,7 @@
             this.lblPostNaam = new System.Windows.Forms.Label();
             this.lblPlaatsPost = new System.Windows.Forms.Label();
             this.tabSelectedPost = new System.Windows.Forms.TabPage();
+            this.btnReply = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnLike = new System.Windows.Forms.Button();
             this.dgvReplies = new System.Windows.Forms.DataGridView();
@@ -71,7 +72,6 @@
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnReply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -122,6 +122,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Facebook Meetup",
+            "SME"});
             this.comboBox1.Location = new System.Drawing.Point(745, 52);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -135,6 +138,7 @@
             this.btnLogout.TabIndex = 8;
             this.btnLogout.Text = "Uitloggen";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pictureBox1
             // 
@@ -362,6 +366,16 @@
             this.tabSelectedPost.Text = "tabPage1";
             this.tabSelectedPost.UseVisualStyleBackColor = true;
             // 
+            // btnReply
+            // 
+            this.btnReply.Location = new System.Drawing.Point(775, 147);
+            this.btnReply.Name = "btnReply";
+            this.btnReply.Size = new System.Drawing.Size(75, 23);
+            this.btnReply.TabIndex = 11;
+            this.btnReply.Text = "Reageer";
+            this.btnReply.UseVisualStyleBackColor = true;
+            this.btnReply.Click += new System.EventHandler(this.btnReply_Click);
+            // 
             // btnReport
             // 
             this.btnReport.Location = new System.Drawing.Point(775, 205);
@@ -491,16 +505,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnReply
-            // 
-            this.btnReply.Location = new System.Drawing.Point(775, 147);
-            this.btnReply.Name = "btnReply";
-            this.btnReply.Size = new System.Drawing.Size(75, 23);
-            this.btnReply.TabIndex = 11;
-            this.btnReply.Text = "Reageer";
-            this.btnReply.UseVisualStyleBackColor = true;
-            this.btnReply.Click += new System.EventHandler(this.btnReply_Click);
             // 
             // MediaForm
             // 

@@ -285,6 +285,11 @@ namespace MediaSyteem
 
 
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
   
         
     }
