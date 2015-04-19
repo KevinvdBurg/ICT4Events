@@ -27,6 +27,8 @@ namespace MediaSyteem
         //public string downloadPath = exePath + @"\Downloads";
         public string downloadPath;
         public string filePath;
+        public string uploadFilePath;
+        public string uploadMapPath;
 
         //private System.Windows.Forms.TreeView directoryTreeView;
         private string substringDirectory;
@@ -161,8 +163,7 @@ namespace MediaSyteem
 
 
             //testje
-            if (string.IsNullOrEmpty(tbFilePath.Text))
-            {
+
                 if (Title && Inhoud)
                 {
                     if (currentPost == 0)
@@ -181,7 +182,7 @@ namespace MediaSyteem
                     tbPostnaam.Clear();
                     tbPostText.Clear();
                 }
-            }
+            
             currentPost = 0;
             currentParentPost = 0;
             tabCPosts.SelectedIndex = 0;
@@ -195,8 +196,10 @@ namespace MediaSyteem
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            tbFilePath.Text = openFileDialog1.FileName;
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                uploadFilePath = openFileDialog2.FileName;
+            }
         }
 
         private void dgvPosts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -377,6 +380,73 @@ namespace MediaSyteem
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 downloadPath = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void tbBestandnaam_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelectUploadMap_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
+            {
+                uploadMapPath = folderBrowserDialog2.SelectedPath;
+            }
+        }
+
+        private void btnUploadBestand_Click(object sender, EventArgs e)
+        {
+            string temp = "";
+            string uploadBestand;
+            if (uploadFilePath == null || uploadMapPath == null || tbUploadbestandnaam.Text == null)
+            {
+                MessageBox.Show("Selecteer een bestand dat je wilt uploaden, de uploadmap en geef een bestandsnaam op.");
+            }
+            else
+            {
+                try
+                {
+                    //Zorgt ervoor dat de goede extentie wordt toegevoegd aan het nieuwe bestand in de download map
+                    int lengte = uploadFilePath.Length;
+                    int startindex = lengte - 3;
+                    string extensie = uploadFilePath.Substring(startindex - 1, 4);
+                    temp = "\\temp" + extensie;
+                    //De downloadPath is gekozen bij de button download map kiezen, de temp voegt een tijdelijke
+                    //naam toe en de extensie van het bestand dat gedownload moet worden.
+                    uploadBestand = uploadMapPath + temp;
+                    //Deze string gebruik je straks om de naam van het gedownloade bestand te veranderen.
+                    string renameBestand = uploadMapPath + "\\" + tbUploadbestandnaam.Text + extensie;
+                    //Als het bestand nog niet in de downloadmap staat gaat hij die aanmaken.
+                    //Dit is NODIG om het bestand te downloaden!
+                    if (!System.IO.File.Exists(uploadBestand))
+                    {
+                        // This statement ensures that the file is created, 
+                        // but the handle is not kept. 
+                        using (FileStream fs = System.IO.File.Create(uploadBestand)) { }
+                    }
+
+                    /*if (!System.IO.File.Exists(renameBestand))
+                    {
+                        // This statement ensures that the file is created, 
+                        // but the handle is not kept. 
+                        using (FileStream fs = System.IO.File.Create(renameBestand))
+                        {
+                        }
+                    }*/
+
+                    //Nu kopieert hij het bestand dat je wilt downloaden met het tijdelijke bestand dat je had.
+                    System.IO.File.Copy(uploadFilePath, uploadBestand, true);
+                    //Hij veranderd de naam in je download map naar de gekozen naam
+                    System.IO.File.Move(uploadBestand, renameBestand);
+                    MessageBox.Show("Bestand is geupload.");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("The process failed: {0}", ex.ToString());
+                }
             }
         }
     }

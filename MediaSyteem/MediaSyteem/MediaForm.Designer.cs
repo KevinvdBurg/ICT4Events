@@ -38,6 +38,8 @@
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
             this.dgvMap = new System.Windows.Forms.DataGridView();
+            this.mapid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mapnaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBestandnaam = new System.Windows.Forms.TextBox();
             this.btnDownloadMap = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -50,7 +52,6 @@
             this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewPost = new System.Windows.Forms.Button();
             this.tabNewPost = new System.Windows.Forms.TabPage();
-            this.tbFilePath = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnCancelPost = new System.Windows.Forms.Button();
             this.btnConfirmPost = new System.Windows.Forms.Button();
@@ -78,8 +79,15 @@
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.mapid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mapnaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSelectUploadMap = new System.Windows.Forms.Button();
+            this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.btnUploadBestand = new System.Windows.Forms.Button();
+            this.tbUploadbestandnaam = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -174,6 +182,8 @@
             // 
             // tabPosts
             // 
+            this.tabPosts.Controls.Add(this.label3);
+            this.tabPosts.Controls.Add(this.label2);
             this.tabPosts.Controls.Add(this.dgvMap);
             this.tabPosts.Controls.Add(this.tbBestandnaam);
             this.tabPosts.Controls.Add(this.btnDownloadMap);
@@ -201,18 +211,36 @@
             this.dgvMap.Size = new System.Drawing.Size(108, 220);
             this.dgvMap.TabIndex = 10;
             // 
+            // mapid
+            // 
+            this.mapid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.mapid.HeaderText = "mapid";
+            this.mapid.Name = "mapid";
+            this.mapid.ReadOnly = true;
+            this.mapid.Visible = false;
+            // 
+            // mapnaam
+            // 
+            this.mapnaam.HeaderText = "Naam";
+            this.mapnaam.MinimumWidth = 220;
+            this.mapnaam.Name = "mapnaam";
+            this.mapnaam.ReadOnly = true;
+            this.mapnaam.Visible = false;
+            this.mapnaam.Width = 220;
+            // 
             // tbBestandnaam
             // 
-            this.tbBestandnaam.Location = new System.Drawing.Point(775, 190);
+            this.tbBestandnaam.Location = new System.Drawing.Point(651, 184);
             this.tbBestandnaam.Name = "tbBestandnaam";
             this.tbBestandnaam.Size = new System.Drawing.Size(100, 20);
             this.tbBestandnaam.TabIndex = 9;
+            this.tbBestandnaam.TextChanged += new System.EventHandler(this.tbBestandnaam_TextChanged);
             // 
             // btnDownloadMap
             // 
-            this.btnDownloadMap.Location = new System.Drawing.Point(790, 111);
+            this.btnDownloadMap.Location = new System.Drawing.Point(651, 110);
             this.btnDownloadMap.Name = "btnDownloadMap";
-            this.btnDownloadMap.Size = new System.Drawing.Size(75, 63);
+            this.btnDownloadMap.Size = new System.Drawing.Size(199, 47);
             this.btnDownloadMap.TabIndex = 8;
             this.btnDownloadMap.Text = "Selecteer download map";
             this.btnDownloadMap.UseVisualStyleBackColor = true;
@@ -220,19 +248,19 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(790, 225);
+            this.btnSave.Location = new System.Drawing.Point(757, 184);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 57);
+            this.btnSave.Size = new System.Drawing.Size(93, 38);
             this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Sla bestand op";
+            this.btnSave.Text = "Download bestand";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnOpenmap
             // 
-            this.btnOpenmap.Location = new System.Drawing.Point(790, 48);
+            this.btnOpenmap.Location = new System.Drawing.Point(651, 62);
             this.btnOpenmap.Name = "btnOpenmap";
-            this.btnOpenmap.Size = new System.Drawing.Size(75, 56);
+            this.btnOpenmap.Size = new System.Drawing.Size(199, 42);
             this.btnOpenmap.TabIndex = 6;
             this.btnOpenmap.Text = "Open map";
             this.btnOpenmap.UseVisualStyleBackColor = true;
@@ -303,7 +331,11 @@
             // 
             // tabNewPost
             // 
-            this.tabNewPost.Controls.Add(this.tbFilePath);
+            this.tabNewPost.Controls.Add(this.label5);
+            this.tabNewPost.Controls.Add(this.tbUploadbestandnaam);
+            this.tabNewPost.Controls.Add(this.btnUploadBestand);
+            this.tabNewPost.Controls.Add(this.btnSelectUploadMap);
+            this.tabNewPost.Controls.Add(this.label4);
             this.tabNewPost.Controls.Add(this.btnBrowse);
             this.tabNewPost.Controls.Add(this.btnCancelPost);
             this.tabNewPost.Controls.Add(this.btnConfirmPost);
@@ -320,26 +352,19 @@
             this.tabNewPost.Text = "tabPage1";
             this.tabNewPost.UseVisualStyleBackColor = true;
             // 
-            // tbFilePath
-            // 
-            this.tbFilePath.Location = new System.Drawing.Point(221, 304);
-            this.tbFilePath.Name = "tbFilePath";
-            this.tbFilePath.Size = new System.Drawing.Size(206, 20);
-            this.tbFilePath.TabIndex = 10;
-            // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(453, 304);
+            this.btnBrowse.Location = new System.Drawing.Point(140, 330);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(75, 43);
             this.btnBrowse.TabIndex = 9;
-            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Text = "Selecteer Bestand";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnCancelPost
             // 
-            this.btnCancelPost.Location = new System.Drawing.Point(331, 345);
+            this.btnCancelPost.Location = new System.Drawing.Point(593, 350);
             this.btnCancelPost.Name = "btnCancelPost";
             this.btnCancelPost.Size = new System.Drawing.Size(75, 23);
             this.btnCancelPost.TabIndex = 8;
@@ -349,26 +374,26 @@
             // 
             // btnConfirmPost
             // 
-            this.btnConfirmPost.Location = new System.Drawing.Point(221, 345);
+            this.btnConfirmPost.Location = new System.Drawing.Point(557, 292);
             this.btnConfirmPost.Name = "btnConfirmPost";
-            this.btnConfirmPost.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmPost.Size = new System.Drawing.Size(111, 23);
             this.btnConfirmPost.TabIndex = 7;
-            this.btnConfirmPost.Text = "Plaats";
+            this.btnConfirmPost.Text = "Plaats bericht";
             this.btnConfirmPost.UseVisualStyleBackColor = true;
             this.btnConfirmPost.Click += new System.EventHandler(this.btnConfirmPost_Click);
             // 
             // lblBestand
             // 
             this.lblBestand.AutoSize = true;
-            this.lblBestand.Location = new System.Drawing.Point(34, 306);
+            this.lblBestand.Location = new System.Drawing.Point(34, 345);
             this.lblBestand.Name = "lblBestand";
-            this.lblBestand.Size = new System.Drawing.Size(52, 13);
+            this.lblBestand.Size = new System.Drawing.Size(93, 13);
             this.lblBestand.TabIndex = 5;
-            this.lblBestand.Text = "Bestand :";
+            this.lblBestand.Text = "Bestand uploaden";
             // 
             // tbPostText
             // 
-            this.tbPostText.Location = new System.Drawing.Point(221, 95);
+            this.tbPostText.Location = new System.Drawing.Point(140, 118);
             this.tbPostText.MaxLength = 500;
             this.tbPostText.Multiline = true;
             this.tbPostText.Name = "tbPostText";
@@ -378,7 +403,7 @@
             // lblPostTekst
             // 
             this.lblPostTekst.AutoSize = true;
-            this.lblPostTekst.Location = new System.Drawing.Point(34, 95);
+            this.lblPostTekst.Location = new System.Drawing.Point(34, 121);
             this.lblPostTekst.Name = "lblPostTekst";
             this.lblPostTekst.Size = new System.Drawing.Size(40, 13);
             this.lblPostTekst.TabIndex = 3;
@@ -386,7 +411,7 @@
             // 
             // tbPostnaam
             // 
-            this.tbPostnaam.Location = new System.Drawing.Point(221, 64);
+            this.tbPostnaam.Location = new System.Drawing.Point(140, 87);
             this.tbPostnaam.Name = "tbPostnaam";
             this.tbPostnaam.Size = new System.Drawing.Size(206, 20);
             this.tbPostnaam.TabIndex = 2;
@@ -394,7 +419,7 @@
             // lblPostNaam
             // 
             this.lblPostNaam.AutoSize = true;
-            this.lblPostNaam.Location = new System.Drawing.Point(34, 64);
+            this.lblPostNaam.Location = new System.Drawing.Point(34, 90);
             this.lblPostNaam.Name = "lblPostNaam";
             this.lblPostNaam.Size = new System.Drawing.Size(63, 13);
             this.lblPostNaam.TabIndex = 1;
@@ -404,7 +429,7 @@
             // 
             this.lblPlaatsPost.AutoSize = true;
             this.lblPlaatsPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaatsPost.Location = new System.Drawing.Point(30, 10);
+            this.lblPlaatsPost.Location = new System.Drawing.Point(30, 15);
             this.lblPlaatsPost.Name = "lblPlaatsPost";
             this.lblPlaatsPost.Size = new System.Drawing.Size(199, 39);
             this.lblPlaatsPost.TabIndex = 0;
@@ -568,22 +593,72 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // mapid
+            // label2
             // 
-            this.mapid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.mapid.HeaderText = "mapid";
-            this.mapid.Name = "mapid";
-            this.mapid.ReadOnly = true;
-            this.mapid.Visible = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(648, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Download een bestand";
             // 
-            // mapnaam
+            // label3
             // 
-            this.mapnaam.HeaderText = "Naam";
-            this.mapnaam.MinimumWidth = 220;
-            this.mapnaam.Name = "mapnaam";
-            this.mapnaam.ReadOnly = true;
-            this.mapnaam.Visible = false;
-            this.mapnaam.Width = 220;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(651, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Geef een bestandsnaam op";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 63);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Bericht";
+            // 
+            // btnSelectUploadMap
+            // 
+            this.btnSelectUploadMap.Location = new System.Drawing.Point(221, 330);
+            this.btnSelectUploadMap.Name = "btnSelectUploadMap";
+            this.btnSelectUploadMap.Size = new System.Drawing.Size(75, 43);
+            this.btnSelectUploadMap.TabIndex = 12;
+            this.btnSelectUploadMap.Text = "Selecteer doelmap";
+            this.btnSelectUploadMap.UseVisualStyleBackColor = true;
+            this.btnSelectUploadMap.Click += new System.EventHandler(this.btnSelectUploadMap_Click);
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // btnUploadBestand
+            // 
+            this.btnUploadBestand.Location = new System.Drawing.Point(447, 330);
+            this.btnUploadBestand.Name = "btnUploadBestand";
+            this.btnUploadBestand.Size = new System.Drawing.Size(75, 43);
+            this.btnUploadBestand.TabIndex = 13;
+            this.btnUploadBestand.Text = "Upload bestand";
+            this.btnUploadBestand.UseVisualStyleBackColor = true;
+            this.btnUploadBestand.Click += new System.EventHandler(this.btnUploadBestand_Click);
+            // 
+            // tbUploadbestandnaam
+            // 
+            this.tbUploadbestandnaam.Location = new System.Drawing.Point(302, 352);
+            this.tbUploadbestandnaam.Name = "tbUploadbestandnaam";
+            this.tbUploadbestandnaam.Size = new System.Drawing.Size(139, 20);
+            this.tbUploadbestandnaam.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(302, 336);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Geef het bestand een naam";
             // 
             // MediaForm
             // 
@@ -650,7 +725,6 @@
         private System.Windows.Forms.Label lblName2;
         private System.Windows.Forms.Label lblRFID2;
         private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.TextBox tbFilePath;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnOpenPost;
         private System.Windows.Forms.DataGridViewTextBoxColumn PostID;
@@ -675,6 +749,15 @@
         private System.Windows.Forms.DataGridView dgvMap;
         private System.Windows.Forms.DataGridViewTextBoxColumn mapid;
         private System.Windows.Forms.DataGridViewTextBoxColumn mapnaam;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSelectUploadMap;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.Button btnUploadBestand;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbUploadbestandnaam;
 
     }
 }
