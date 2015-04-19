@@ -310,6 +310,7 @@ namespace MediaSyteem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Hier selecteer je de path van het bestand dat je wilt downloaden
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 filePath = openFileDialog1.FileName;
@@ -328,12 +329,18 @@ namespace MediaSyteem
             {
                 try
                 {
+                    //Zorgt ervoor dat de goede extentie wordt toegevoegd aan het nieuwe bestand in de download map
                     int lengte = filePath.Length;
                     int startindex = lengte - 3;
                     string extensie = filePath.Substring(startindex - 1, 4);
                     temp = "\\temp" + extensie;
+                    //De downloadPath is gekozen bij de button download map kiezen, de temp voegt een tijdelijke
+                    //naam toe en de extensie van het bestand dat gedownload moet worden.
                     downloadBestand = downloadPath + temp;
+                    //Deze string gebruik je straks om de naam van het gedownloade bestand te veranderen.
                     string renameBestand = downloadPath + "\\" + tbBestandnaam.Text + extensie;
+                    //Als het bestand nog niet in de downloadmap staat gaat hij die aanmaken.
+                    //Dit is NODIG om het bestand te downloaden!
                     if (!System.IO.File.Exists(downloadBestand))
                     {
                         // This statement ensures that the file is created, 
@@ -349,7 +356,10 @@ namespace MediaSyteem
                         {
                         }
                     }*/
+
+                    //Nu kopieert hij het bestand dat je wilt downloaden met het tijdelijke bestand dat je had.
                     System.IO.File.Copy(filePath, downloadBestand, true);
+                    //Hij veranderd de naam in je download map naar de gekozen naam
                     System.IO.File.Move(downloadBestand, renameBestand);
                     MessageBox.Show("Bestand is gedownload.");
 
@@ -363,6 +373,7 @@ namespace MediaSyteem
 
         private void btnDownloadMap_Click(object sender, EventArgs e)
         {
+            //De path van de gekozen map word hier veranderd
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 downloadPath = folderBrowserDialog1.SelectedPath;
