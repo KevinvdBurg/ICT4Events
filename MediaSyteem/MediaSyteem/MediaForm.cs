@@ -19,11 +19,11 @@ namespace MediaSyteem
     {
 
         private Administation admini;
-        private int currentPostReplies = 0;
-        private int currentPost = 0;
-        private int currentParentPost = 0;
-        private int currentMap = 1;
-        private int currentParentMap = 0;
+        private int currentPostReplies = 0; //bijhouden hoeveel replies van huidige post
+        private int currentPost = 0; //bijouden welke post er is geopend
+        private int currentParentPost = 0; //bijhouden waar een post een reactie op is
+        //private int currentMap = 1;
+        private int currentParentMap = 0;// bijhoudn in welke map er word gekeken
         public static string exePath = Application.StartupPath.ToString();
         //public string downloadPath = exePath + @"\Downloads";
         public string downloadPath;
@@ -37,38 +37,28 @@ namespace MediaSyteem
         public MediaForm(Administation admin)
         {
             InitializeComponent();
-            //TESTJES
-            /*this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");
-            this.dgvPosts.Rows.Add("Titeltje");*/
-            admini = admin;
-            currentParentMap = 1;
-            currentMap = 1;
-            resizeGrid();
+      
+            admini = admin; //administration vanuit login scherm meegeven
+            currentParentMap = 1; //standaard kijk je IN de hoofdmap
+            //currentMap = 1;
+            resizeGrid(); //resized de datagridviews. vult ze nu ook
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
         }
 
-        private
-            void btnNewPost_Click(object sender, EventArgs e)
+        //Geen appartje venster, maar het zijn verschillende tabjes met onzichtbare knoppen daarvan
+        private void btnNewPost_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 1;
         }
-
+        //resized en vult dgv's
         private void resizeGrid()
         {
+            //eerst leegmaken
             dgvPosts.Rows.Clear();
             dgvMap.Rows.Clear();
+            //We hebben er voor gekozen om alle posts te laten zien als je in de hoofdmap zit
+            //wel alleen de mappen die direct onder de hoofdmap liggen
             if(currentParentMap == 1)
             {
                 foreach (Post p in admini.returnAllPosts())
@@ -83,6 +73,8 @@ namespace MediaSyteem
                 
                 //dgvMap.Refresh();  
             }
+            // Laat alle posts in de huidige map zien
+            // en de mappen die in de huidige map zitten
             else
             {
                 foreach (Post p in admini.returnAllPosts(currentParentMap))
@@ -95,12 +87,12 @@ namespace MediaSyteem
                     dgvMap.Rows.Add(m.Mapid, m.Name);
                 }
             }
-
+            //Laten zien in welke map je zit
             lblMap.Text = admini.getParentMapName(currentParentMap);
             
                 
             
-
+            //resize van posts dgv
             int caseSwitch = dgvPosts.RowCount;
             switch (caseSwitch)
             {
@@ -161,16 +153,19 @@ namespace MediaSyteem
 
         private void btnSelectedPostReturn_Click(object sender, EventArgs e)
         {
+            //terug naar de posts
             tabCPosts.SelectedIndex = 0;
             resizeGrid();
         }
 
         private void btnCancelPost_Click(object sender, EventArgs e)
         {
+            //terug naar de posts
             tabCPosts.SelectedIndex = 0;
             resizeGrid();
         }
 
+        //post plaatsen
         private void btnConfirmPost_Click(object sender, EventArgs e)
         {
             bool Title = true;
@@ -215,11 +210,13 @@ namespace MediaSyteem
             resizeGrid();
         }
 
+        //Applicatie sluiten
         private void MediaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        //Browsen naar files
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
@@ -228,8 +225,10 @@ namespace MediaSyteem
             }
         }
 
+        //verwijst dit gemaakt ipv elke keer klikken op een post, en dan nog op een knopje
         private void dgvPosts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //kijken in welke rij er word geklikt
             int index = dgvPosts.CurrentCell.RowIndex;
             dgvPosts.Rows[index].Selected = true;
 
@@ -237,11 +236,12 @@ namespace MediaSyteem
             //MessageBox.Show(dgvPosts.SelectedRows[0].Cells["postid"].ToString());
         }
 
+        //Postscherm vullen met de juiste informatie en dan wisselen naar dat scherm
         private void btnOpenPost_Click(object sender, EventArgs e)
         {
             int gridCount = 0;
             dgvReplies.Rows.Clear();
-
+            //bijhouden welke post er is geopend
             foreach (DataGridViewRow row in dgvPosts.SelectedRows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -254,14 +254,16 @@ namespace MediaSyteem
                     gridCount++;
                 }
             }
+            //Velden vullen
             lblSelectedPostTitle.Text = admini.postTitel(currentPost);
             lblPostAuteur.Text = admini.PostAuteur(currentPost);
             currentPostReplies = admini.NumberOfReplies(currentPost);
-
+            //als het een bericht is, haal de tekst op
             if (admini.isMessage(currentPost))
             {
                 tbSelectedPost.Text = admini.postText(currentPost);
             }
+            //als hij replies heeft,laat deze dan
             if (currentPostReplies > 0)
             {
                 foreach (Post p in admini.ReturnAllReplies(currentPost))
@@ -270,22 +272,25 @@ namespace MediaSyteem
 
                 }
             }
+            //wisselen van scherm
             tabCPosts.SelectedIndex = 2;
 
         }
 
         private void btnLike_Click(object sender, EventArgs e)
-        {
+        {   //post reporten
             admini.LikePost(currentPost);
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            //post reporten
             admini.ReportPost(currentPost);
         }
 
         private void dgvReplies_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //kijken in welke rij er word geklikt
             int index = dgvReplies.CurrentCell.RowIndex;
             dgvReplies.Rows[index].Selected = true;
 
@@ -293,7 +298,7 @@ namespace MediaSyteem
 
 
 
-
+            //Bijhouden welke post er is geopend
             foreach (DataGridViewRow row in dgvReplies.SelectedRows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -306,9 +311,11 @@ namespace MediaSyteem
                     gridCount++;
                 }
             }
+            //Informatie velden vullen
             lblSelectedPostTitle.Text = admini.postTitel(currentPost);
             lblPostAuteur.Text = admini.PostAuteur(currentPost);
             currentPostReplies = admini.NumberOfReplies(currentPost);
+            //replies van de nu geopende post ophalen en weergeven
             dgvReplies.Rows.Clear();
 
             if (admini.isMessage(currentPost))
@@ -326,7 +333,7 @@ namespace MediaSyteem
         }
 
         private void btnReply_Click(object sender, EventArgs e)
-        {
+        {   //scherm wisslen
             tabCPosts.SelectedIndex = 1;
 
 
@@ -334,6 +341,7 @@ namespace MediaSyteem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //opnieuwstarten DUH
             Application.Restart();
         }
 
@@ -511,7 +519,6 @@ namespace MediaSyteem
         private void btnHoofdmap_Click(object sender, EventArgs e)
         {
             currentParentMap = 1;
-            currentMap = 1;
             resizeGrid();
         }
     }
