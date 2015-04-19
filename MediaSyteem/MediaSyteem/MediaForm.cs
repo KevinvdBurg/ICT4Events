@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using File = System.IO.File;
 
 namespace MediaSyteem
 {
@@ -18,9 +22,13 @@ namespace MediaSyteem
         private int currentPostReplies = 0;
         private int currentPost = 0;
         private int currentParentPost = 0;
+        public static string exePath = Application.StartupPath.ToString();
+        //public string downloadPath = exePath + @"\Downloads";
+        public string downloadPath;
+        public string filePath;
 
         //private System.Windows.Forms.TreeView directoryTreeView;
-        string substringDirectory;
+        private string substringDirectory;
 
         public MediaForm(Administation admin)
         {
@@ -40,15 +48,13 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");*/
             admini = admin;
-            
+
             resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
 
             treeView1.Nodes.Clear();
-
             String path = @"C:\Program Files";
-
             treeView1.Nodes.Add(path);
             PopulateTreeView(path, treeView1.Nodes[0]);
         }
@@ -138,12 +144,12 @@ namespace MediaSyteem
                     {
                         dgvPosts.Height = 286;
                     }
-                    
+
                     break;
-                
-                    
-                
-                    
+
+
+
+
             }
         }
 
@@ -182,14 +188,14 @@ namespace MediaSyteem
                 MessageBox.Show("Vul de inhoud in");
                 Inhoud = false;
             }
-            
-            
+
+
             //testje
             if (string.IsNullOrEmpty(tbFilePath.Text))
             {
                 if (Title && Inhoud)
                 {
-                    if(currentPost == 0)
+                    if (currentPost == 0)
                     {
                         Post post = new Post(DateTime.Now, 0, 1, 0, tbPostnaam.Text, "Bericht");
                         post.Account = admini.currentAccount;
@@ -201,7 +207,7 @@ namespace MediaSyteem
                         post.Account = admini.currentAccount;
                         admini.AddReply(post, tbPostText.Text);
                     }
-                    
+
                     tbPostnaam.Clear();
                     tbPostText.Clear();
                 }
@@ -226,8 +232,8 @@ namespace MediaSyteem
         private void dgvPosts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dgvPosts.CurrentCell.RowIndex;
-           dgvPosts.Rows[index].Selected = true;
-            
+            dgvPosts.Rows[index].Selected = true;
+
             btnOpenPost.PerformClick();
             //MessageBox.Show(dgvPosts.SelectedRows[0].Cells["postid"].ToString());
         }
@@ -262,11 +268,11 @@ namespace MediaSyteem
                 foreach (Post p in admini.ReturnAllReplies(currentPost))
                 {
                     dgvReplies.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
-                    
+
                 }
             }
             tabCPosts.SelectedIndex = 2;
-            
+
         }
 
         private void btnLike_Click(object sender, EventArgs e)
@@ -286,8 +292,8 @@ namespace MediaSyteem
 
             int gridCount = 0;
 
-            
-            
+
+
 
             foreach (DataGridViewRow row in dgvReplies.SelectedRows)
             {
@@ -330,6 +336,73 @@ namespace MediaSyteem
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode == null)
+            {
+                MessageBox.Show("Selecteer een Map.");
+            }
+            else
+            {
+                openFileDialog1.InitialDirectory = treeView1.SelectedNode.FullPath;
+                openFileDialog1.ShowDialog();
+                filePath = openFileDialog1.FileName;
+            }
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string temp = "";
+            string downloadBestand;
+            if (filePath == null || downloadPath == null || tbBestandnaam.Text == null)
+            {
+                MessageBox.Show("Selecteer een bestand dat je wilt downloaden, de downloadmap en geef een bestandsnaam op.");
+            }
+            else
+            {
+                try
+                {
+                    int lengte = filePath.Length;
+                    int startindex = lengte - 3;
+                    string extensie = filePath.Substring(startindex - 1, 4);
+                    temp = "\\temp" + extensie;
+                    downloadBestand = downloadPath + temp;
+                    string renameBestand = downloadPath + "\\" + tbBestandnaam.Text + extensie;
+                    if (!System.IO.File.Exists(downloadBestand))
+                    {
+                        // This statement ensures that the file is created, 
+                        // but the handle is not kept. 
+                        using (FileStream fs = System.IO.File.Create(downloadBestand)) { }
+                    }
+
+                    /*if (!System.IO.File.Exists(renameBestand))
+                    {
+                        // This statement ensures that the file is created, 
+                        // but the handle is not kept. 
+                        using (FileStream fs = System.IO.File.Create(renameBestand))
+                        {
+                        }
+                    }*/
+                    System.IO.File.Copy(filePath, downloadBestand, true);
+                    System.IO.File.Move(downloadBestand, renameBestand);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("The process failed: {0}", ex.ToString());
+                }
+            }
+        }
+
+        private void btnDownloadMap_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                downloadPath = folderBrowserDialog1.SelectedPath;
+            }
         }
     }
 }

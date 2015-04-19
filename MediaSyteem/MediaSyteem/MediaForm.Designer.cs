@@ -37,6 +37,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
+            this.btnOpenmap = new System.Windows.Forms.Button();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.btnOpenPost = new System.Windows.Forms.Button();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
             this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +74,10 @@
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDownloadMap = new System.Windows.Forms.Button();
+            this.tbBestandnaam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -166,6 +171,10 @@
             // 
             // tabPosts
             // 
+            this.tabPosts.Controls.Add(this.tbBestandnaam);
+            this.tabPosts.Controls.Add(this.btnDownloadMap);
+            this.tabPosts.Controls.Add(this.btnSave);
+            this.tabPosts.Controls.Add(this.btnOpenmap);
             this.tabPosts.Controls.Add(this.treeView1);
             this.tabPosts.Controls.Add(this.btnOpenPost);
             this.tabPosts.Controls.Add(this.dgvPosts);
@@ -177,6 +186,23 @@
             this.tabPosts.TabIndex = 0;
             this.tabPosts.Text = "InCheck";
             this.tabPosts.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenmap
+            // 
+            this.btnOpenmap.Location = new System.Drawing.Point(790, 48);
+            this.btnOpenmap.Name = "btnOpenmap";
+            this.btnOpenmap.Size = new System.Drawing.Size(75, 56);
+            this.btnOpenmap.TabIndex = 6;
+            this.btnOpenmap.Text = "Open map";
+            this.btnOpenmap.UseVisualStyleBackColor = true;
+            this.btnOpenmap.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(529, 48);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(227, 282);
+            this.treeView1.TabIndex = 4;
             // 
             // btnOpenPost
             // 
@@ -508,12 +534,32 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // treeView1
+            // btnSave
             // 
-            this.treeView1.Location = new System.Drawing.Point(623, 82);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(227, 282);
-            this.treeView1.TabIndex = 4;
+            this.btnSave.Location = new System.Drawing.Point(790, 225);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 57);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Sla bestand op";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDownloadMap
+            // 
+            this.btnDownloadMap.Location = new System.Drawing.Point(790, 111);
+            this.btnDownloadMap.Name = "btnDownloadMap";
+            this.btnDownloadMap.Size = new System.Drawing.Size(75, 63);
+            this.btnDownloadMap.TabIndex = 8;
+            this.btnDownloadMap.Text = "Selecteer download map";
+            this.btnDownloadMap.UseVisualStyleBackColor = true;
+            this.btnDownloadMap.Click += new System.EventHandler(this.btnDownloadMap_Click);
+            // 
+            // tbBestandnaam
+            // 
+            this.tbBestandnaam.Location = new System.Drawing.Point(775, 190);
+            this.tbBestandnaam.Name = "tbBestandnaam";
+            this.tbBestandnaam.Size = new System.Drawing.Size(100, 20);
+            this.tbBestandnaam.TabIndex = 9;
             // 
             // MediaForm
             // 
@@ -538,6 +584,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabCPosts.ResumeLayout(false);
             this.tabPosts.ResumeLayout(false);
+            this.tabPosts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosts)).EndInit();
             this.tabNewPost.ResumeLayout(false);
             this.tabNewPost.PerformLayout();
@@ -596,6 +643,11 @@
         private System.Windows.Forms.Button btnLike;
         private System.Windows.Forms.Button btnReply;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button btnOpenmap;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button btnDownloadMap;
+        private System.Windows.Forms.TextBox tbBestandnaam;
 
     }
 }
