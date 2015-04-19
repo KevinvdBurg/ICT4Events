@@ -346,6 +346,7 @@ namespace MediaSyteem
                     }*/
                     System.IO.File.Copy(filePath, downloadBestand, true);
                     System.IO.File.Move(downloadBestand, renameBestand);
+                    MessageBox.Show("Bestand is gedownload.");
 
                 }
                 catch (Exception ex)
