@@ -37,6 +37,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
+            this.dgvMap = new System.Windows.Forms.DataGridView();
+            this.tbBestandnaam = new System.Windows.Forms.TextBox();
+            this.btnDownloadMap = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnOpenmap = new System.Windows.Forms.Button();
             this.btnOpenPost = new System.Windows.Forms.Button();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
@@ -74,12 +78,12 @@
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDownloadMap = new System.Windows.Forms.Button();
-            this.tbBestandnaam = new System.Windows.Forms.TextBox();
+            this.mapid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mapnaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosts)).BeginInit();
             this.tabNewPost.SuspendLayout();
             this.tabSelectedPost.SuspendLayout();
@@ -170,6 +174,7 @@
             // 
             // tabPosts
             // 
+            this.tabPosts.Controls.Add(this.dgvMap);
             this.tabPosts.Controls.Add(this.tbBestandnaam);
             this.tabPosts.Controls.Add(this.btnDownloadMap);
             this.tabPosts.Controls.Add(this.btnSave);
@@ -185,6 +190,44 @@
             this.tabPosts.Text = "InCheck";
             this.tabPosts.UseVisualStyleBackColor = true;
             // 
+            // dgvMap
+            // 
+            this.dgvMap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mapid,
+            this.mapnaam});
+            this.dgvMap.Location = new System.Drawing.Point(24, 62);
+            this.dgvMap.Name = "dgvMap";
+            this.dgvMap.Size = new System.Drawing.Size(108, 220);
+            this.dgvMap.TabIndex = 10;
+            // 
+            // tbBestandnaam
+            // 
+            this.tbBestandnaam.Location = new System.Drawing.Point(775, 190);
+            this.tbBestandnaam.Name = "tbBestandnaam";
+            this.tbBestandnaam.Size = new System.Drawing.Size(100, 20);
+            this.tbBestandnaam.TabIndex = 9;
+            // 
+            // btnDownloadMap
+            // 
+            this.btnDownloadMap.Location = new System.Drawing.Point(790, 111);
+            this.btnDownloadMap.Name = "btnDownloadMap";
+            this.btnDownloadMap.Size = new System.Drawing.Size(75, 63);
+            this.btnDownloadMap.TabIndex = 8;
+            this.btnDownloadMap.Text = "Selecteer download map";
+            this.btnDownloadMap.UseVisualStyleBackColor = true;
+            this.btnDownloadMap.Click += new System.EventHandler(this.btnDownloadMap_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(790, 225);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 57);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Sla bestand op";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // btnOpenmap
             // 
             this.btnOpenmap.Location = new System.Drawing.Point(790, 48);
@@ -197,7 +240,7 @@
             // 
             // btnOpenPost
             // 
-            this.btnOpenPost.Location = new System.Drawing.Point(138, 20);
+            this.btnOpenPost.Location = new System.Drawing.Point(287, 20);
             this.btnOpenPost.Name = "btnOpenPost";
             this.btnOpenPost.Size = new System.Drawing.Size(75, 23);
             this.btnOpenPost.TabIndex = 3;
@@ -214,7 +257,7 @@
             this.postTitel,
             this.likes,
             this.dislikes});
-            this.dgvPosts.Location = new System.Drawing.Point(46, 62);
+            this.dgvPosts.Location = new System.Drawing.Point(138, 62);
             this.dgvPosts.Name = "dgvPosts";
             this.dgvPosts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPosts.Size = new System.Drawing.Size(443, 42);
@@ -250,7 +293,7 @@
             // 
             // btnNewPost
             // 
-            this.btnNewPost.Location = new System.Drawing.Point(46, 20);
+            this.btnNewPost.Location = new System.Drawing.Point(138, 20);
             this.btnNewPost.Name = "btnNewPost";
             this.btnNewPost.Size = new System.Drawing.Size(75, 23);
             this.btnNewPost.TabIndex = 1;
@@ -525,32 +568,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnSave
+            // mapid
             // 
-            this.btnSave.Location = new System.Drawing.Point(790, 225);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 57);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Sla bestand op";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.mapid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.mapid.HeaderText = "mapid";
+            this.mapid.Name = "mapid";
+            this.mapid.ReadOnly = true;
+            this.mapid.Visible = false;
             // 
-            // btnDownloadMap
+            // mapnaam
             // 
-            this.btnDownloadMap.Location = new System.Drawing.Point(790, 111);
-            this.btnDownloadMap.Name = "btnDownloadMap";
-            this.btnDownloadMap.Size = new System.Drawing.Size(75, 63);
-            this.btnDownloadMap.TabIndex = 8;
-            this.btnDownloadMap.Text = "Selecteer download map";
-            this.btnDownloadMap.UseVisualStyleBackColor = true;
-            this.btnDownloadMap.Click += new System.EventHandler(this.btnDownloadMap_Click);
-            // 
-            // tbBestandnaam
-            // 
-            this.tbBestandnaam.Location = new System.Drawing.Point(775, 190);
-            this.tbBestandnaam.Name = "tbBestandnaam";
-            this.tbBestandnaam.Size = new System.Drawing.Size(100, 20);
-            this.tbBestandnaam.TabIndex = 9;
+            this.mapnaam.HeaderText = "Naam";
+            this.mapnaam.MinimumWidth = 220;
+            this.mapnaam.Name = "mapnaam";
+            this.mapnaam.ReadOnly = true;
+            this.mapnaam.Visible = false;
+            this.mapnaam.Width = 220;
             // 
             // MediaForm
             // 
@@ -576,6 +609,7 @@
             this.tabCPosts.ResumeLayout(false);
             this.tabPosts.ResumeLayout(false);
             this.tabPosts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosts)).EndInit();
             this.tabNewPost.ResumeLayout(false);
             this.tabNewPost.PerformLayout();
@@ -638,6 +672,9 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnDownloadMap;
         private System.Windows.Forms.TextBox tbBestandnaam;
+        private System.Windows.Forms.DataGridView dgvMap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mapid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mapnaam;
 
     }
 }

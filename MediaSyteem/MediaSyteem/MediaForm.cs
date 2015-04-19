@@ -22,6 +22,7 @@ namespace MediaSyteem
         private int currentPostReplies = 0;
         private int currentPost = 0;
         private int currentParentPost = 0;
+        private int currentMap;
         public static string exePath = Application.StartupPath.ToString();
         //public string downloadPath = exePath + @"\Downloads";
         public string downloadPath;
@@ -48,8 +49,8 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");*/
             admini = admin;
-
-            resizeGrid();
+            currentMap = 1;
+            resizeGrid(currentMap);
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
         }
@@ -60,13 +61,17 @@ namespace MediaSyteem
             tabCPosts.SelectedIndex = 1;
         }
 
-        private void resizeGrid()
+        private void resizeGrid(int mapid)
         {
             dgvPosts.Rows.Clear();
-            foreach (Post p in admini.returnAllPosts())
+            if(mapid == 1)
             {
-                dgvPosts.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
+                foreach (Post p in admini.returnAllPosts())
+                {
+                    dgvPosts.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
+                }
             }
+            
 
             int caseSwitch = dgvPosts.RowCount;
             switch (caseSwitch)
@@ -129,13 +134,13 @@ namespace MediaSyteem
         private void btnSelectedPostReturn_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
-            resizeGrid();
+            resizeGrid(currentMap);
         }
 
         private void btnCancelPost_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
-            resizeGrid();
+            resizeGrid(currentMap);
         }
 
         private void btnConfirmPost_Click(object sender, EventArgs e)
@@ -180,7 +185,7 @@ namespace MediaSyteem
             currentPost = 0;
             currentParentPost = 0;
             tabCPosts.SelectedIndex = 0;
-            resizeGrid();
+            resizeGrid(currentMap);
         }
 
         private void MediaForm_FormClosing(object sender, FormClosingEventArgs e)
