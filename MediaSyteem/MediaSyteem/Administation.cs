@@ -59,6 +59,13 @@ public class Administation
         return resultaat;
     }
 
+    public List<Post> returnAllPosts(int parentmap)
+    {
+        List<Post> resultaat = new List<Post>();
+        resultaat = dbpost.allPosts(parentmap);
+        return resultaat;
+    }
+
     public string postTitel(int postid)
     {
         return dbpost.GetTitel(postid);
@@ -114,6 +121,19 @@ public class Administation
         dbpost.InsertFile(file, account);
     }
 
+    public List<Map> ReturnMaps()
+    {
+        return dbpost.allMaps();
+    }
+    public List<Map> ReturnMaps(int mapid)
+    {
+        return dbpost.allMaps(mapid);
+    }
+
+    public string getParentMapName(int parentmapid)
+    {
+        return dbpost.parentMapNaam(parentmapid);
+    }
 
 
 }

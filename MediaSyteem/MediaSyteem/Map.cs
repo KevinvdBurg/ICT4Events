@@ -23,10 +23,24 @@ public class Map
 		set;
 	}
 
-    public Map(string Name, int ParentMap)
+    public int Mapid
     {
+        get;
+        set;
+    }
+
+    
+    public Map(int mapid, string Name, int ParentMap)
+    {
+        this.Mapid = mapid;
         this.Name = Name;
         this.ParentMap = ParentMap;
+    }
+
+    public Map(int mapid, string name)
+    {
+        this.Mapid = mapid;
+        this.Name = name;
     }
 }
 

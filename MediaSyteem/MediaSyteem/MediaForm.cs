@@ -22,7 +22,8 @@ namespace MediaSyteem
         private int currentPostReplies = 0;
         private int currentPost = 0;
         private int currentParentPost = 0;
-        private int currentMap;
+        private int currentMap = 1;
+        private int currentParentMap = 0;
         public static string exePath = Application.StartupPath.ToString();
         //public string downloadPath = exePath + @"\Downloads";
         public string downloadPath;
@@ -51,8 +52,9 @@ namespace MediaSyteem
             this.dgvPosts.Rows.Add("Titeltje");
             this.dgvPosts.Rows.Add("Titeltje");*/
             admini = admin;
+            currentParentMap = 1;
             currentMap = 1;
-            resizeGrid(currentMap);
+            resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
         }
@@ -63,16 +65,40 @@ namespace MediaSyteem
             tabCPosts.SelectedIndex = 1;
         }
 
-        private void resizeGrid(int mapid)
+        private void resizeGrid()
         {
             dgvPosts.Rows.Clear();
-            if(mapid == 1)
+            dgvMap.Rows.Clear();
+            if(currentParentMap == 1)
             {
                 foreach (Post p in admini.returnAllPosts())
                 {
                     dgvPosts.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
                 }
+                
+                foreach(Map m in admini.ReturnMaps(currentParentMap))
+                {
+                    dgvMap.Rows.Add(m.Mapid,m.Name);
+                }
+                
+                //dgvMap.Refresh();  
             }
+            else
+            {
+                foreach (Post p in admini.returnAllPosts(currentParentMap))
+                {
+                    dgvPosts.Rows.Add(p.Postid, p.Title, p.Likes, p.Reports);
+                }
+
+                foreach(Map m in admini.ReturnMaps(currentParentMap))
+                {
+                    dgvMap.Rows.Add(m.Mapid, m.Name);
+                }
+            }
+
+            lblMap.Text = admini.getParentMapName(currentParentMap);
+            
+                
             
 
             int caseSwitch = dgvPosts.RowCount;
@@ -136,13 +162,13 @@ namespace MediaSyteem
         private void btnSelectedPostReturn_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
-            resizeGrid(currentMap);
+            resizeGrid();
         }
 
         private void btnCancelPost_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 0;
-            resizeGrid(currentMap);
+            resizeGrid();
         }
 
         private void btnConfirmPost_Click(object sender, EventArgs e)
@@ -186,7 +212,7 @@ namespace MediaSyteem
             currentPost = 0;
             currentParentPost = 0;
             tabCPosts.SelectedIndex = 0;
-            resizeGrid(currentMap);
+            resizeGrid();
         }
 
         private void MediaForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -442,7 +468,7 @@ namespace MediaSyteem
                     System.IO.File.Move(uploadBestand, renameBestand);
                     MessageBox.Show("Bestand is geupload.");
                     long length;
-                    global::File file = new global::File(DateTime.Now, 0, 1, 0, 0, tbUploadbestandnaam.Text, "Bestand", uploadFilePath, new FileInfo(uploadFilePath).Length);
+                    global::File file = new global::File(DateTime.Now, 0, 1, 0, 0, tbUploadbestandnaam.Text, "Bestand", uploadFilePath, new FileInfo(uploadFilePath).Length, 1);
                     admini.Add(file, admini.currentAccount);
                 }
                 catch (Exception ex)
@@ -450,6 +476,43 @@ namespace MediaSyteem
                     MessageBox.Show("The process failed: {0}", ex.ToString());
                 }
             }
+        }
+
+        private void dgvMap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvMap.CurrentCell.RowIndex;
+            dgvMap.Rows[index].Selected = true;
+
+            int gridCount = 0;
+
+
+
+
+            foreach (DataGridViewRow row in dgvMap.SelectedRows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (gridCount == 0)
+                    {
+                        currentParentMap = Convert.ToInt32(cell.Value);
+                        //currentParentPost = admini.GiveParentPost(currentPost);
+                    }
+                    gridCount++;
+                }
+            }
+
+            resizeGrid();
+            
+
+            
+            
+        }
+
+        private void btnHoofdmap_Click(object sender, EventArgs e)
+        {
+            currentParentMap = 1;
+            currentMap = 1;
+            resizeGrid();
         }
     }
 }

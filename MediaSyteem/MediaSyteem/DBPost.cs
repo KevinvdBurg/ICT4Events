@@ -463,16 +463,16 @@ public class DBPost : Database
         bool resultaat = true;
         string sql;
         //CHECKEN OF DIE GOED IS?
-        sql = "insert into Bestand(postid, typeid, bestandslocatie, grootte) values (:postid, :typeid, :bestandslocattie, :grootte)";
+        sql = "insert into Bestand(postid, typeid, bestandslocatie) values (:postid, :typeid, :bestandslocattie)";
 
         try
         {
             Connect();
             OracleCommand cmd = new OracleCommand(sql, connection);
             cmd.Parameters.Add(new OracleParameter("postid", postid));
-            cmd.Parameters.Add(new OracleParameter("typeid", Convert.ToInt32(file.Type)));
+            cmd.Parameters.Add(new OracleParameter("typeid", file.TypeBestand));
             cmd.Parameters.Add(new OracleParameter("bestandslocatie", file.FileLocation));
-            cmd.Parameters.Add(new OracleParameter("grootte", file.Size.ToString()));
+            //cmd.Parameters.Add(new OracleParameter("grootte", file.Size.ToString()));
             cmd.ExecuteNonQuery();
         }
         catch (OracleException e)
@@ -678,6 +678,124 @@ public class DBPost : Database
 
    // public bool isBericht(int postid);
 
-    
+    public List<Map> allMaps()//zonder parent map
+    {
+        List<Map> resultaat = new List<Map>();
+        string sql;
+        sql = "select * from map where parentmapid is null";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat.Add(new Map(Convert.ToInt32(reader["mapid"]), Convert.ToString(reader["naam"])));
+            }
+        }
+        catch (OracleException e)
+        {
+            // The connection failed. Display an error message            
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+    public List<Map> allMaps(int parentmap)//met parent map
+    {
+        List<Map> resultaat = new List<Map>();
+        string sql;
+        sql = "select * from map where parentmapid = :parentmap";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("parentmap", parentmap));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat.Add(new Map(Convert.ToInt32(reader["mapid"]), Convert.ToString(reader["naam"]), Convert.ToInt32(reader["parentmapid"])));
+            }
+        }
+        catch (OracleException e)
+        {
+            // The connection failed. Display an error message            
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public List<Post> allPosts(int currentmap)//met parentmap
+    {
+        List<Post> resultaat = new List<Post>();
+        string sql;
+        sql = "select * from post where mapid = :currentmap";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("current", currentmap));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if (!hasParentPost(Convert.ToInt32(reader["postid"])))
+                {
+                    /*if(Convert.ToString(reader["soort"]) == "bericht")
+                    {
+                        resultaat.Add(new Message(Convert.ToDateTime(reader["datum"]), Convert.ToInt32(reader["aantallikes"]),Convert.ToInt32(reader["mapid"]), Convert.ToInt32(reader["aantaldislikes"]), Convert.ToString(reader["titel"]), "bericht", Convert.ToString(reader[");
+                    }*/
+                    resultaat.Add(new Post(Convert.ToInt32(reader["postid"]), Convert.ToInt32(reader["aantallikes"]), Convert.ToInt32(reader["aantalreports"]), Convert.ToString(reader["titel"])));
+                }
+            }
+        }
+        catch (OracleException e)
+        {
+            // The connection failed. Display an error message            
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public string parentMapNaam(int parentmapid)
+    {
+        string resultaat = "";
+        string sql;
+        sql = "select naam from map where mapid = :parentmapid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("parentmapid", parentmapid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToString(reader["naam"]);
+            }
+
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
 }
 

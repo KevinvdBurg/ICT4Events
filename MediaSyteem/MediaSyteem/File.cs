@@ -12,6 +12,11 @@ using System.Text;
 public class File : Post
 {
 
+    public int TypeBestand
+    {
+        get;
+        set;
+    }
  
 	public Category Category
 	{
@@ -31,11 +36,12 @@ public class File : Post
 		set;
 	}
 
-	public File( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type, string FileLocation, long Size):base(Date,  Likes, Map,Post, Reports,  Title,  Type)
+	public File( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type, string FileLocation, long Size, int typeBestand):base(Date,  Likes, Map,Post, Reports,  Title,  Type)
 	{
         this.Category = Category;
         this.FileLocation = FileLocation;
         this.Size = Size;
+        this.TypeBestand = typeBestand;
 	}
 
 }
