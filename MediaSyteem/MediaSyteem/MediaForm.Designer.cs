@@ -72,6 +72,7 @@
             this.lblName2 = new System.Windows.Forms.Label();
             this.lblRFID2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             // tabPosts
             // 
+            this.tabPosts.Controls.Add(this.treeView1);
             this.tabPosts.Controls.Add(this.btnOpenPost);
             this.tabPosts.Controls.Add(this.dgvPosts);
             this.tabPosts.Controls.Add(this.btnNewPost);
@@ -506,6 +508,13 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(623, 82);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(227, 282);
+            this.treeView1.TabIndex = 4;
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,6 +595,7 @@
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnLike;
         private System.Windows.Forms.Button btnReply;
+        private System.Windows.Forms.TreeView treeView1;
 
     }
 }

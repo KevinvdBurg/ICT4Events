@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace MediaSyteem
         private int currentPostReplies = 0;
         private int currentPost = 0;
         private int currentParentPost = 0;
+
+        //private System.Windows.Forms.TreeView directoryTreeView;
+        string substringDirectory;
 
         public MediaForm(Administation admin)
         {
@@ -40,10 +44,47 @@ namespace MediaSyteem
             resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
-            
+
+            treeView1.Nodes.Clear();
+
+            String path = @"C:\Program Files";
+
+            treeView1.Nodes.Add(path);
+            PopulateTreeView(path, treeView1.Nodes[0]);
         }
 
-        private void btnNewPost_Click(object sender, EventArgs e)
+        public void PopulateTreeView(string directoryValue, TreeNode parentNode)
+        {
+            string[] directoryArray =
+                Directory.GetDirectories(directoryValue);
+
+            try
+            {
+                if (directoryArray.Length != 0)
+                {
+                    foreach (string directory in directoryArray)
+                    {
+                        substringDirectory = directory.Substring(
+                            directory.LastIndexOf('\\') + 1,
+                            directory.Length - directory.LastIndexOf('\\') - 1);
+
+                        TreeNode myNode = new TreeNode(substringDirectory);
+
+                        parentNode.Nodes.Add(myNode);
+
+                        PopulateTreeView(directory, myNode);
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                parentNode.Nodes.Add("Access denied");
+                // end catch
+            }
+        }
+
+        private
+            void btnNewPost_Click(object sender, EventArgs e)
         {
             tabCPosts.SelectedIndex = 1;
         }
@@ -290,7 +331,5 @@ namespace MediaSyteem
         {
             Application.Restart();
         }
-  
-        
     }
 }
