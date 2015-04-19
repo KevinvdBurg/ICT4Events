@@ -25,13 +25,13 @@ public class File : Post
 		set;
 	}
 
-	public Double Size
+	public long Size
 	{
 		get;
 		set;
 	}
 
-	public File( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type,Category Category, string FileLocation, Double Size):base(Date,  Likes, Map,Post, Reports,  Title,  Type)
+	public File( DateTime Date, int Likes, int Map, int Post, int Reports, string Title, string Type, string FileLocation, long Size):base(Date,  Likes, Map,Post, Reports,  Title,  Type)
 	{
         this.Category = Category;
         this.FileLocation = FileLocation;

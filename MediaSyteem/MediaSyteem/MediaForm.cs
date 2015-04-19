@@ -441,7 +441,9 @@ namespace MediaSyteem
                     //Hij veranderd de naam in je download map naar de gekozen naam
                     System.IO.File.Move(uploadBestand, renameBestand);
                     MessageBox.Show("Bestand is geupload.");
-
+                    long length;
+                    global::File file = new global::File(DateTime.Now, 0, 1, 0, 0, tbUploadbestandnaam.Text, "Bestand", uploadFilePath, new FileInfo(uploadFilePath).Length);
+                    admini.Add(file, admini.currentAccount);
                 }
                 catch (Exception ex)
                 {

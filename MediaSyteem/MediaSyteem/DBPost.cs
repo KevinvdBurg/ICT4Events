@@ -249,6 +249,38 @@ public class DBPost : Database
         }
         return resultaat;
     }
+
+    public bool isBestand(int postid)
+    {
+        bool resultaat = false;
+        string sql;
+        sql = "select * from post where  soort = 'Bestand' and postid = :postid";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                resultaat = true;
+            }
+
+
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+
     public bool isBericht(int postid)
     {
         bool resultaat = false;
@@ -315,6 +347,42 @@ public class DBPost : Database
         return resultaat;
     }
 
+    public int FindPostId(Post findPost, Account account)
+    {
+        //throw new System.NotImplementedException();
+        int resultaat = 0;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "SELECT postid FROM post WHERE GebruikerID = :accountje AND mapid = :map AND Soort = :type AND titel = :title";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("accountje", account.GebruikerID));
+            cmd.Parameters.Add(new OracleParameter("map", findPost.Map));
+            cmd.Parameters.Add(new OracleParameter("type", findPost.Type));
+            cmd.Parameters.Add(new OracleParameter("title", findPost.Title));
+            /*cmd.Parameters.Add(new OracleParameter("reports", findPost.Reports));
+            cmd.Parameters.Add(new OracleParameter("likes", findPost.Likes));
+            cmd.Parameters.Add(new OracleParameter("datum", findPost.Date.ToString("dd/MMMM/yy")));*/
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                resultaat = Convert.ToInt32(reader["postid"]);
+            }
+        }
+        catch (OracleException e)
+        {
+
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
 	public bool InsertMessage(Post postinsert, string inhoud)
 	{
         //throw new System.NotImplementedException();
@@ -351,6 +419,73 @@ public class DBPost : Database
         }
         return resultaat;
 	}
+
+    public bool InsertFile(File file, Account account)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = true;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert into post(GEBRUIKERID, MAPID, SOORT, TITEL, AANTALREPORTS, AANTALLIKES, DATUM) values (:accountje, :map, :type, :title, :reports, :likes, :datum)";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("accountje", account.GebruikerID));
+            cmd.Parameters.Add(new OracleParameter("map", file.Map));
+            cmd.Parameters.Add(new OracleParameter("type", file.Type));
+            cmd.Parameters.Add(new OracleParameter("title", file.Title.ToString()));
+            cmd.Parameters.Add(new OracleParameter("reports", file.Reports));
+            cmd.Parameters.Add(new OracleParameter("likes", file.Likes));
+            cmd.Parameters.Add(new OracleParameter("datum", file.Date.ToString("dd/MMMM/yy")));
+            cmd.ExecuteNonQuery();
+            int postid = FindPostId(file, account);
+            if (isBestand(postid))
+            {
+                InsertBestand(postid, file);
+            }
+        }
+        catch (OracleException e)
+        {
+            resultaat = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+    }
+
+    public bool InsertBestand(int postid, File file)
+    {
+        //throw new System.NotImplementedException();
+        bool resultaat = true;
+        string sql;
+        //CHECKEN OF DIE GOED IS?
+        sql = "insert into Bestand(postid, typeid, bestandslocatie, grootte) values (:postid, :typeid, :bestandslocattie, :grootte)";
+
+        try
+        {
+            Connect();
+            OracleCommand cmd = new OracleCommand(sql, connection);
+            cmd.Parameters.Add(new OracleParameter("postid", postid));
+            cmd.Parameters.Add(new OracleParameter("typeid", Convert.ToInt32(file.Type)));
+            cmd.Parameters.Add(new OracleParameter("bestandslocatie", file.FileLocation));
+            cmd.Parameters.Add(new OracleParameter("grootte", file.Size.ToString()));
+            cmd.ExecuteNonQuery();
+        }
+        catch (OracleException e)
+        {
+            resultaat = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return resultaat;
+
+    }
 
     public bool InsertMessage(int postid, string inhoud)
     {

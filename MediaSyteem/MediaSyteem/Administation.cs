@@ -109,6 +109,12 @@ public class Administation
         dbpost.InsertReply(Post, Inhoud);
     }
 
+    public void Add(File file, Account account)
+    {
+        dbpost.InsertFile(file, account);
+    }
+
+
 
 }
 
