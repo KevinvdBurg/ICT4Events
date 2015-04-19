@@ -52,41 +52,6 @@ namespace MediaSyteem
             resizeGrid();
             lblName2.Text = admin.currentAccount.Person.Name;
             lblRFID2.Text = admin.currentAccount.RFID;
-
-            treeView1.Nodes.Clear();
-            String path = @"C:\Program Files";
-            treeView1.Nodes.Add(path);
-            PopulateTreeView(path, treeView1.Nodes[0]);
-        }
-
-        public void PopulateTreeView(string directoryValue, TreeNode parentNode)
-        {
-            string[] directoryArray =
-                Directory.GetDirectories(directoryValue);
-
-            try
-            {
-                if (directoryArray.Length != 0)
-                {
-                    foreach (string directory in directoryArray)
-                    {
-                        substringDirectory = directory.Substring(
-                            directory.LastIndexOf('\\') + 1,
-                            directory.Length - directory.LastIndexOf('\\') - 1);
-
-                        TreeNode myNode = new TreeNode(substringDirectory);
-
-                        parentNode.Nodes.Add(myNode);
-
-                        PopulateTreeView(directory, myNode);
-                    }
-                }
-            }
-            catch (UnauthorizedAccessException)
-            {
-                parentNode.Nodes.Add("Access denied");
-                // end catch
-            }
         }
 
         private
@@ -340,17 +305,10 @@ namespace MediaSyteem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode == null)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Selecteer een Map.");
-            }
-            else
-            {
-                openFileDialog1.InitialDirectory = treeView1.SelectedNode.FullPath;
-                openFileDialog1.ShowDialog();
                 filePath = openFileDialog1.FileName;
             }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)

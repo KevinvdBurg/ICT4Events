@@ -38,7 +38,6 @@
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
             this.btnOpenmap = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.btnOpenPost = new System.Windows.Forms.Button();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
             this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -175,7 +174,6 @@
             this.tabPosts.Controls.Add(this.btnDownloadMap);
             this.tabPosts.Controls.Add(this.btnSave);
             this.tabPosts.Controls.Add(this.btnOpenmap);
-            this.tabPosts.Controls.Add(this.treeView1);
             this.tabPosts.Controls.Add(this.btnOpenPost);
             this.tabPosts.Controls.Add(this.dgvPosts);
             this.tabPosts.Controls.Add(this.btnNewPost);
@@ -196,13 +194,6 @@
             this.btnOpenmap.Text = "Open map";
             this.btnOpenmap.UseVisualStyleBackColor = true;
             this.btnOpenmap.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(529, 48);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(227, 282);
-            this.treeView1.TabIndex = 4;
             // 
             // btnOpenPost
             // 
@@ -642,7 +633,6 @@
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnLike;
         private System.Windows.Forms.Button btnReply;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button btnOpenmap;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
