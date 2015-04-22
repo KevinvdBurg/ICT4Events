@@ -50,10 +50,6 @@
             this.btnOpenmap = new System.Windows.Forms.Button();
             this.btnOpenPost = new System.Windows.Forms.Button();
             this.dgvPosts = new System.Windows.Forms.DataGridView();
-            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dislikes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewPost = new System.Windows.Forms.Button();
             this.tabNewPost = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,6 +86,10 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.PostID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postTitel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reports = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -322,7 +322,7 @@
             this.PostID,
             this.postTitel,
             this.likes,
-            this.dislikes});
+            this.reports});
             this.dgvPosts.Location = new System.Drawing.Point(138, 62);
             this.dgvPosts.Name = "dgvPosts";
             this.dgvPosts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -330,32 +330,6 @@
             this.dgvPosts.TabIndex = 2;
             this.dgvPosts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPosts_CellContentClick);
             this.dgvPosts.DoubleClick += new System.EventHandler(this.dgvPosts_DoubleClick);
-            // 
-            // PostID
-            // 
-            this.PostID.HeaderText = "PostID";
-            this.PostID.Name = "PostID";
-            this.PostID.ReadOnly = true;
-            this.PostID.Visible = false;
-            // 
-            // postTitel
-            // 
-            this.postTitel.HeaderText = "Post titel";
-            this.postTitel.Name = "postTitel";
-            this.postTitel.ReadOnly = true;
-            this.postTitel.Width = 200;
-            // 
-            // likes
-            // 
-            this.likes.HeaderText = "Likes";
-            this.likes.Name = "likes";
-            this.likes.ReadOnly = true;
-            // 
-            // dislikes
-            // 
-            this.dislikes.HeaderText = "Dislikes";
-            this.dislikes.Name = "dislikes";
-            this.dislikes.ReadOnly = true;
             // 
             // btnNewPost
             // 
@@ -680,6 +654,32 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // PostID
+            // 
+            this.PostID.HeaderText = "PostID";
+            this.PostID.Name = "PostID";
+            this.PostID.ReadOnly = true;
+            this.PostID.Visible = false;
+            // 
+            // postTitel
+            // 
+            this.postTitel.HeaderText = "Post titel";
+            this.postTitel.Name = "postTitel";
+            this.postTitel.ReadOnly = true;
+            this.postTitel.Width = 200;
+            // 
+            // likes
+            // 
+            this.likes.HeaderText = "Likes";
+            this.likes.Name = "likes";
+            this.likes.ReadOnly = true;
+            // 
+            // reports
+            // 
+            this.reports.HeaderText = "Reports";
+            this.reports.Name = "reports";
+            this.reports.ReadOnly = true;
+            // 
             // MediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,10 +747,6 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnOpenPost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postTitel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn likes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dislikes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPostAuteur;
         private System.Windows.Forms.DataGridView dgvReplies;
@@ -780,6 +776,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mapnaam;
         private System.Windows.Forms.Button btnHoofdmap;
         private System.Windows.Forms.Label lblMap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postTitel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn likes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reports;
 
     }
 }
