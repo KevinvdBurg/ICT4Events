@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2015-04-22T14:31:17" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '46e8dd77-268e-42e8-b569-9cf6e34681f1' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1' -  (ModelStoreModel)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Account' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Medium" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation' -  (Class)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Add' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Add::account' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Add::file' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Add::Inhoud' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Add::map' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Add::Post' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::AddReply' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::AddReply::Inhoud' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::AddReply::Post' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Administation' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::currentAccount' -  (Property)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::dblogin' -  (Property)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::dbpost' -  (Property)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Delete' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Delete::Post' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Find' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::Find::Post' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::getParentMapName' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::getParentMapName::parentmapid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::GiveParentPost' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::GiveParentPost::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::hasParentPost' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::hasParentPost::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::isMessage' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::isMessage::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::LikePost' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::LikePost::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::login' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::login::password' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::login::username' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::NumberOfReplies' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::NumberOfReplies::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::PostAuteur' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::PostAuteur::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::postText' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::postText::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::postTitel' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::postTitel::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::ReportPost' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::ReportPost::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::returnAllPosts' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::returnAllPosts::parentmap' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::ReturnAllReplies' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::ReturnAllReplies::postid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::ReturnMaps' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::ReturnMaps::mapid' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::setCurrentAccount' -  (Operation)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Administation::setCurrentAccount::email' -  (Parameter)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::DBLogin' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::DBPost' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::File' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Map' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::Post' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System' -  (Package)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections' -  (Package)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic::List&lt;Map‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic::List&lt;Post‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Administation to ModelingProject1::Account (Association)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::File to ModelingProject1::Post (Generalization)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::Message to ModelingProject1::Post (Generalization)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::DBLogin to ModelingProject1::Database (Generalization)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: ModelingProject1::DBPost to ModelingProject1::Database (Generalization)" />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="High" Text="(9) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-04-22T14:31:19" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>
