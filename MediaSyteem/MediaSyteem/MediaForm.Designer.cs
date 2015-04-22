@@ -37,9 +37,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCPosts = new System.Windows.Forms.TabControl();
             this.tabPosts = new System.Windows.Forms.TabPage();
+            this.lblMap = new System.Windows.Forms.Label();
+            this.btnHoofdmap = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvMap = new System.Windows.Forms.DataGridView();
+            this.mapid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mapnaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBestandnaam = new System.Windows.Forms.TextBox();
             this.btnDownloadMap = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -86,10 +90,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.mapid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mapnaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnHoofdmap = new System.Windows.Forms.Button();
-            this.lblMap = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCPosts.SuspendLayout();
             this.tabPosts.SuspendLayout();
@@ -204,6 +204,25 @@
             this.tabPosts.Text = "InCheck";
             this.tabPosts.UseVisualStyleBackColor = true;
             // 
+            // lblMap
+            // 
+            this.lblMap.AutoSize = true;
+            this.lblMap.Location = new System.Drawing.Point(228, 25);
+            this.lblMap.Name = "lblMap";
+            this.lblMap.Size = new System.Drawing.Size(38, 13);
+            this.lblMap.TabIndex = 14;
+            this.lblMap.Text = "lblMap";
+            // 
+            // btnHoofdmap
+            // 
+            this.btnHoofdmap.Location = new System.Drawing.Point(24, 20);
+            this.btnHoofdmap.Name = "btnHoofdmap";
+            this.btnHoofdmap.Size = new System.Drawing.Size(108, 23);
+            this.btnHoofdmap.TabIndex = 13;
+            this.btnHoofdmap.Text = "Naar hoofdmap";
+            this.btnHoofdmap.UseVisualStyleBackColor = true;
+            this.btnHoofdmap.Click += new System.EventHandler(this.btnHoofdmap_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -233,6 +252,19 @@
             this.dgvMap.Size = new System.Drawing.Size(108, 271);
             this.dgvMap.TabIndex = 10;
             this.dgvMap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMap_CellContentClick);
+            // 
+            // mapid
+            // 
+            this.mapid.HeaderText = "mapid";
+            this.mapid.Name = "mapid";
+            this.mapid.ReadOnly = true;
+            this.mapid.Visible = false;
+            // 
+            // mapnaam
+            // 
+            this.mapnaam.HeaderText = "mapnaam";
+            this.mapnaam.Name = "mapnaam";
+            this.mapnaam.ReadOnly = true;
             // 
             // tbBestandnaam
             // 
@@ -268,7 +300,7 @@
             this.btnOpenmap.Name = "btnOpenmap";
             this.btnOpenmap.Size = new System.Drawing.Size(199, 42);
             this.btnOpenmap.TabIndex = 6;
-            this.btnOpenmap.Text = "Open map";
+            this.btnOpenmap.Text = "Selecteer bestand";
             this.btnOpenmap.UseVisualStyleBackColor = true;
             this.btnOpenmap.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -647,38 +679,6 @@
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // mapid
-            // 
-            this.mapid.HeaderText = "mapid";
-            this.mapid.Name = "mapid";
-            this.mapid.ReadOnly = true;
-            this.mapid.Visible = false;
-            // 
-            // mapnaam
-            // 
-            this.mapnaam.HeaderText = "mapnaam";
-            this.mapnaam.Name = "mapnaam";
-            this.mapnaam.ReadOnly = true;
-            // 
-            // btnHoofdmap
-            // 
-            this.btnHoofdmap.Location = new System.Drawing.Point(24, 20);
-            this.btnHoofdmap.Name = "btnHoofdmap";
-            this.btnHoofdmap.Size = new System.Drawing.Size(108, 23);
-            this.btnHoofdmap.TabIndex = 13;
-            this.btnHoofdmap.Text = "Naar hoofdmap";
-            this.btnHoofdmap.UseVisualStyleBackColor = true;
-            this.btnHoofdmap.Click += new System.EventHandler(this.btnHoofdmap_Click);
-            // 
-            // lblMap
-            // 
-            this.lblMap.AutoSize = true;
-            this.lblMap.Location = new System.Drawing.Point(228, 25);
-            this.lblMap.Name = "lblMap";
-            this.lblMap.Size = new System.Drawing.Size(38, 13);
-            this.lblMap.TabIndex = 14;
-            this.lblMap.Text = "lblMap";
             // 
             // MediaForm
             // 

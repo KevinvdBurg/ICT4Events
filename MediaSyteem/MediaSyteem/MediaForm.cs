@@ -219,6 +219,7 @@ namespace MediaSyteem
         //Browsen naar files
         private void btnBrowse_Click(object sender, EventArgs e)
         {
+            openFileDialog2.FileName = "";
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
             {
                 uploadFilePath = openFileDialog2.FileName;
@@ -348,6 +349,9 @@ namespace MediaSyteem
         private void button1_Click(object sender, EventArgs e)
         {
             //Hier selecteer je de path van het bestand dat je wilt downloaden
+            string temp = @"C:\DropBox\SME";
+            openFileDialog1.InitialDirectory = temp;
+            openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 filePath = openFileDialog1.FileName;
@@ -424,6 +428,8 @@ namespace MediaSyteem
 
         private void btnSelectUploadMap_Click(object sender, EventArgs e)
         {
+            string temp = @"C:\DropBox\SME";
+            folderBrowserDialog2.SelectedPath = temp;
             if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
             {
                 uploadMapPath = folderBrowserDialog2.SelectedPath;
