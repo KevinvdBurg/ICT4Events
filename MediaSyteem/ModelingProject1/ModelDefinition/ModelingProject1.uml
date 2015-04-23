@@ -6861,6 +6861,47 @@
               LastKnownLocation="ModelingProject1.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="bfc647a7-f0dc-4850-972c-a25a40a6de1d"
+            isDerived="false"
+            sourceEndRoleName="DBLogin"
+            targetEndRoleName="Administation"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="89d2576b-8e3f-4cbb-9ffc-e6fa887671d0"
+              LastKnownName="Administation"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="668818b8-0b33-4715-9c46-030af372f41f"
+                  name="DBLogin"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="13e9d78f-7ac6-4d88-9195-b2cf4697b00e"
+                  name="Administation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="a93220ec-185e-4b0f-909a-599839da3544"
@@ -7211,6 +7252,47 @@
               LastKnownLocation="ModelingProject1.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="3a07a450-31a5-49a9-a89d-98af76a5a673"
+            isDerived="false"
+            sourceEndRoleName="DBPost"
+            targetEndRoleName="Administation"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="89d2576b-8e3f-4cbb-9ffc-e6fa887671d0"
+              LastKnownName="Administation"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="23e9b27c-0221-4947-96c7-92d8f2519605"
+                  name="DBPost"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0f3dfd1b-d5c1-4250-9218-017b0abe2ab6"
+                  name="Administation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="8acb11bf-aff7-4a0c-b6d2-7a8907fc9a32"

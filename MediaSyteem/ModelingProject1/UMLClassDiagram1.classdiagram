@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="e91e8ea8-6abb-425e-bbbe-8f973354cb04" name="UMLClassDiagram1" linkedPackageId="25799b1e-54e8-4b0c-950c-1f220ec561ad" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="c8ce610d-7d5c-4460-a8f2-a37535b9e101">
-      <profileInstance Id="d314d9ee-5187-4f1a-a640-592f64eb74a2" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="e5ce30f9-52d6-43c5-b335-795864a61be5">
-      <profileInstance Id="e21821b1-aace-48d2-9840-ee018743f591" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="7889c2a1-e6ce-453e-94c7-4cf473b9706e">
-      <profileInstance Id="94cf07b4-a75a-46f7-a2f1-6fb41757cc0e" name="CSharpProfile">
-        <elementDefinition Id="06634803-b56d-4c9f-b217-5715af14987c" />
-      </profileInstance>
-      <elementDefinition Id="847bcea2-445c-4d95-9e64-946abeda9505" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="326e0950-ea96-438a-9fd4-2e4ea1400104" name="Account" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -1211,6 +1191,24 @@
             <elementDefinition Id="fd726a4d-b9e5-4b9b-9adc-b8f21d17760b" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="ac30c4ee-4aa9-427c-b084-13c2b43d5a7a" isDerived="false" sourceEndRoleName="DBLogin" targetEndRoleName="Administation" isLeaf="false" isAbstract="false">
+            <classMoniker Id="69f7534d-36e8-4205-8598-b8b70e23ff47" LastKnownName="Administation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="38898d97-c4c2-4c4f-b6e1-60ec27342c92" name="DBLogin" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="668818b8-0b33-4715-9c46-030af372f41f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d7e3212c-e0d7-4ae6-9eee-87995d076276" name="Administation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="13e9d78f-7ac6-4d88-9195-b2cf4697b00e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bfc647a7-f0dc-4850-972c-a25a40a6de1d" />
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation Id="660fb93a-202a-4e9a-ad3b-56b98d4a4a66" name="loginCheck" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
@@ -1478,6 +1476,24 @@
             <elementDefinition Id="5a0b853d-bfa1-4fa9-85ad-b19dfb92cff9" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="0af58c2a-caa6-4128-b594-04140a2641de" isDerived="false" sourceEndRoleName="DBPost" targetEndRoleName="Administation" isLeaf="false" isAbstract="false">
+            <classMoniker Id="69f7534d-36e8-4205-8598-b8b70e23ff47" LastKnownName="Administation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="994e4df3-167d-4e83-89c6-a588f6f7cf00" name="DBPost" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="23e9b27c-0221-4947-96c7-92d8f2519605" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="96014b58-f8f2-433f-813a-71e2a890ccb9" name="Administation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0f3dfd1b-d5c1-4250-9218-017b0abe2ab6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3a07a450-31a5-49a9-a89d-98af76a5a673" />
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation Id="f5cbd9b2-e419-4bbe-adfa-5101ec69ec1e" name="LikePost" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
@@ -8402,5 +8418,25 @@
   </packagedElements>
   <package Id="25799b1e-54e8-4b0c-950c-1f220ec561ad" name="ModelingProject1">
     <elementDefinition Id="a75eee9e-34eb-4d36-83af-edd28aea0847" />
+    <profileInstances>
+      <packageHasProfileInstances Id="c8ce610d-7d5c-4460-a8f2-a37535b9e101">
+        <profileInstance Id="d314d9ee-5187-4f1a-a640-592f64eb74a2" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e5ce30f9-52d6-43c5-b335-795864a61be5">
+        <profileInstance Id="e21821b1-aace-48d2-9840-ee018743f591" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7889c2a1-e6ce-453e-94c7-4cf473b9706e">
+        <profileInstance Id="94cf07b4-a75a-46f7-a2f1-6fb41757cc0e" name="CSharpProfile">
+          <elementDefinition Id="06634803-b56d-4c9f-b217-5715af14987c" />
+        </profileInstance>
+        <elementDefinition Id="847bcea2-445c-4d95-9e64-946abeda9505" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
